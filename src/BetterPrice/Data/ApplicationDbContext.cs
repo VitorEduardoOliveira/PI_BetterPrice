@@ -20,6 +20,7 @@ namespace BetterPrice.Data
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Produto>(produto =>
