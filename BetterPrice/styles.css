@@ -1,5 +1,3 @@
-/* Estilos personalizados */
-
 body {
    background-color: #f8f9fa;
 }
@@ -16,46 +14,50 @@ body {
 
 .navbar-nav .nav-link {
    color: #fff !important;
-   font-size: 1.1rem; /* Tamanho das opções de navegação */
+   font-size: 1.1rem; /* Tamanho das opÃ§Ãµes de navegaÃ§Ã£o */
 }
 
 .main-content {
    margin-top: 30px;
 }
-
+.navbar-nav {
+   justify-content: center; /* Centraliza os itens */
+}
 footer {
-   background-color: #007bff;
+   background-color: #00186C;
    color: #fff;
    padding: 10px;
    text-align: center;
-   position: fixed;
    width: 100%;
-   bottom: 0;
+   /* Remover o position: fixed */
 }
 
-/* Ajuste dos ícones */
+.navbar-nav.mx-auto {
+   flex: 1;
+   justify-content: center;
+}
+/* Ajuste dos icones */
 .nav-link i {
    font-size: 1.5rem;
 }
 /* Caixa de pesquisa com largura fixa e centralizada */
-/* Caixa de pesquisa com largura fixa e centralizada */
 form {
    width: 100%;
-   max-width: 500px; /* Largura máxima da caixa de pesquisa */
-   margin: 0 auto; /* Centraliza o formulário */
+   max-width: 500px; /* Largura mÃ¡xima da caixa de pesquisa */
+   margin: 0 auto; /* Centraliza o formulÃ¡rio */
 }
 
-/* Usar flexbox para alinhar a caixa de pesquisa e o botão */
+/* Usar flexbox para alinhar a caixa de pesquisa e o botï¿½o */
 form {
    display: flex; /* Alinha os itens horizontalmente */
    justify-content: center; /* Centraliza os itens */
 }
 
-/* Garantir que o campo de pesquisa ocupe a maior parte do espaço */
+/* Garantir que o campo de pesquisa ocupe a maior parte do espaï¿½o */
 form .form-control {
-   flex: 1; /* Faz a caixa de pesquisa ocupar todo o espaço disponível */
-   max-width: 380px; /* Define uma largura máxima */
-   margin-right: 10px; /* Espaçamento entre a caixa de pesquisa e o botão */
+   flex: 1; /* Faz a caixa de pesquisa ocupar todo o espaï¿½o disponï¿½vel */
+   max-width: 380px; /* Define uma largura mï¿½xima */
+   margin-right: 10px; /* Espaï¿½amento entre a caixa de pesquisa e o botï¿½o */
 }
 
 
@@ -67,7 +69,7 @@ form .form-control {
 }
 
 .carousel-item img {
-   width: 250px; /* Largura padrão das imagens */
+   width: 250px; /* Largura padrï¿½o das imagens */
    height: 220px; /* Altura das imagens */
 }
 
@@ -85,4 +87,20 @@ form .form-control {
    .carousel-item img {
        width: 150px; /* Largura das imagens em telas muito pequenas */
    }
+}
+.card-price {
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: #007bff;
+}
+/* Limitar a largura dos cards e centralizar */
+.cards-container {
+   max-width: 900px;
+   margin: 0 auto;
+   padding-bottom: 50px; /* EspaÃ§amento extra para evitar sobreposiÃ§Ã£o com o footer */
+}
+
+/* Ajuste individual para cada card */
+.card {
+   width: 100%; /* Faz os cards ocuparem toda a largura da coluna */
 }
