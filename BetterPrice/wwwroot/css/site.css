@@ -1,0 +1,41 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.btn-custom {
+    color: white; /* Cor do texto */
+    border: 1px solid white; /* Borda branca */
+    background-color: transparent; /* Fundo transparente */
+}
+
+.btn-custom:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo levemente branco no hover */
+    color: white; /* Mantenha a cor do texto branca */
+}
+
+.btn-custom i, text { /* Seletor para o ícone dentro do botão */
+    color: white; /* Cor do ícone */
+}
+
+.custom-margin-top {
+    margin-top: 100px; /* Ajuste este valor conforme necessário */
+}

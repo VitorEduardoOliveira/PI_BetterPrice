@@ -1,0 +1,52 @@
+﻿@page
+@model BetterPrice.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center mt-5"> <!-- Margem superior aumentada -->
+    <h1 class="display-4 mb-2">BetterPrice</h1> <!-- Margem inferior -->
+    <p class="mb-4" style="font-size: 2rem;">O melhor site para o melhor preço.</p> <!-- Margem inferior -->
+
+    <!-- Seção detalhada com instruções -->
+    <div class="d-flex justify-content-center align-items-start mt-5"> <!-- Margem superior aumentada, alinhamento no início -->
+        <div class="mx-3 text-center"> <!-- Espaçamento horizontal e centralização do texto -->
+            <p class="h5 mb-3">1. Digite</p> <!-- Margem inferior -->
+            <p class="d-none d-md-block">Insira o produto que deseja procurar.</p> <!-- Oculto em dispositivos móveis -->
+        </div>
+        <div class="mx-3 text-center"> <!-- Espaçamento horizontal e centralização do texto -->
+            <p class="h5 mb-3">2. Compare</p> <!-- Margem inferior -->
+            <p class="d-none d-md-block">Veja e compare as melhores ofertas disponíveis.</p> <!-- Oculto em dispositivos móveis -->
+        </div>
+        <div class="mx-3 text-center"> <!-- Espaçamento horizontal e centralização do texto -->
+            <p class="h5 mb-3">3. Compre</p> <!-- Margem inferior -->
+            <p class="d-none d-md-block">Escolha a oferta ideal e realize a compra com segurança.</p> <!-- Oculto em dispositivos móveis -->
+        </div>
+    </div>
+
+    <form method="get" asp-page="/ResultadoBusca" class="custom-margin-top"> <!-- Classe mt-7 adicionada para maior margem superior -->
+    <input type="hidden" id="searchType" name="searchType" value="Produtos" />
+    <div class="d-flex justify-content-center mb-4 mt-2"> <!-- Você pode ajustar esta margem também, se necessário -->
+        <input id="searchBar" name="query" type="text" class="form-control" placeholder="Digite sua busca" style="width: 50%;" />
+        <button type="button" class="btn btn-primary ms-2" onclick="toggleSearchType()">
+            <span id="searchTypeText">Buscar por Produtos</span>
+        </button>
+    </div>
+    <button type="submit" class="btn btn-success">Buscar</button>
+</form>
+
+
+
+    @section Scripts {
+            <script>
+                let buscaPorProdutos = true;
+
+                function toggleSearchType() {
+                    buscaPorProdutos = !buscaPorProdutos;
+                    document.getElementById("searchTypeText").innerText = buscaPorProdutos ? "Buscar por Mercados" : "Buscar por Produtos";
+                    document.getElementById("searchBar").placeholder = buscaPorProdutos ? "Digite o nome do produto" : "Digite o nome do mercado";
+                    document.getElementById("searchType").value = buscaPorProdutos ? "Produtos" : "Mercados";
+                }
+            </script>
+    }
+</div>
