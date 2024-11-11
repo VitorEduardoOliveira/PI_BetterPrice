@@ -48,13 +48,13 @@ form {
 }
 
 /* Usar flexbox para alinhar a caixa de pesquisa e o bot�o */
-form {
+.search-form {
    display: flex; /* Alinha os itens horizontalmente */
    justify-content: center; /* Centraliza os itens */
 }
 
 /* Garantir que o campo de pesquisa ocupe a maior parte do espa�o */
-form .form-control {
+.search-form .form-control {
    flex: 1; /* Faz a caixa de pesquisa ocupar todo o espa�o dispon�vel */
    max-width: 380px; /* Define uma largura m�xima */
    margin-right: 10px; /* Espa�amento entre a caixa de pesquisa e o bot�o */
@@ -63,9 +63,9 @@ form .form-control {
 
 /* Em telas maiores, aumentar um pouco a largura */
 @media (min-width: 768px) {
-   form .form-control {
-       max-width: 500px; /* Um pouco maior em telas grandes */
-   }
+    .search-form .form-control {
+        max-width: 500px; /* Um pouco maior em telas grandes */
+    }
 }
 
 .carousel-item img {
