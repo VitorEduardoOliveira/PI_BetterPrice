@@ -6,9 +6,10 @@ namespace BetterPrice.Pages;
 
 public class ProdutosModel : PageModel
 {
+    [BindProperty(SupportsGet = true)]
     public FiltroProduto Filtro { get; set; }
     
-    public void OnGet(FiltroProduto filtro)
+    public void OnGet()
     {
 
     }

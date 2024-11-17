@@ -1,4 +1,8 @@
 ﻿@page
+@using BetterPrice.Pages.Components
+@using BetterPrice.Services
+@using BetterPrice.ViewModels
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BetterPrice.Pages.ProdutosModel
 @{
     <h1>Encontre o melhor preço para você</h1>
@@ -9,4 +13,10 @@
         <input asp-for="Filtro.Nome" class="form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
         <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
     </form>
+
+    @Component.InvokeAsync("ProdutoList", new
+    {
+        tipoListaProduto = TipoListaProduto.Cards,
+        filtroProduto = Model.Filtro
+    })
 }

@@ -7,5 +7,5 @@ public class Carrinho
 {
     public int Id { get; set; }
     public int UsuarioId { get; set; }
-    public List<Produto> Items { get; set; }
+    public List<ItemPreco> Items { get; set; }
 }
