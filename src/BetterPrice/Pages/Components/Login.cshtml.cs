@@ -6,9 +6,9 @@ namespace BetterPrice.Pages
     [ViewComponent]
     public class Login : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string loginView)
         {
-            return View("Cadastrar");
+            return View(loginView);
         }
     }
 }

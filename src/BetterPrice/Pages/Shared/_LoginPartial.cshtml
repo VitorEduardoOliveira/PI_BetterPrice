@@ -3,45 +3,58 @@
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark"  title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form class="form-inline" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">
-            <i class="bi bi-box-arrow-in-right"></i> Entrar / Cadastre-se
-        </button>
-    </li>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a  class="nav-link text-dark"  title="Manage">Hello @User.Identity?.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">
+                <i class="bi bi-box-arrow-in-right"></i> Entrar / Cadastre-se
+            </button>
+        </li>
 
-    <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                @await Component.InvokeAsync("Login")
+        <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    @await Component.InvokeAsync("Login", "Cadastrar")
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                @await Component.InvokeAsync("Login")
+    
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    @await Component.InvokeAsync("Login", "Logar")
+                </div>
             </div>
         </div>
-    </div>
-
-    <!--
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Conta" asp-page="/Cadastro">Register</a>
-    </li>
-    -->
-}
+        
+        <!--
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Conta" asp-page="/Cadastro">Register</a>
+        </li>
+        -->
+    }
 </ul>
+
+<script>
+    document.getElementById("logarBtn").addEventListener("click", function (event) {
+        event.preventDefault();
+        $('#cadastroModal').modal('hide')
+    });
+
+    document.getElementById("cadastrarBtn").addEventListener("click", function (event) {
+        event.preventDefault();
+        $('#loginModal').modal('hide')
+    });
+</script>

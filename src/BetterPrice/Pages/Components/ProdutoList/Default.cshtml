@@ -1,0 +1,20 @@
+﻿@model BetterPrice.ViewModels.ProdutoListVM
+
+<div class="container cards-container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model.Itens)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@item.Produto.UrlImagem" class="card-img-top" alt="Produto 6">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Produto.Nome 6</h5>
+                        <p class="card-text">@item.Produto.Descricao</p>
+                        <p class="card-price">@($"R$ {item.Valor:N2}").</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+            </div>                                
+        }
+    </div>
+</div>

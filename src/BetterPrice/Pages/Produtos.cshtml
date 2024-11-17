@@ -1,7 +1,12 @@
 ﻿@page
 @model BetterPrice.Pages.ProdutosModel
 @{
-    <div class="card-group">
+    <h1>Encontre o melhor preço para você</h1>
+    <p>Explore nossas ofertas e encontre o melhor preço para você.</p>
 
-    </div>
+    <!-- Caixa de pesquisa com bordas arredondadas -->
+    <form role="search" class="d-flex justify-content-center align-items-center">
+        <input asp-for="Filtro.Nome" class="form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
+        <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
+    </form>
 }

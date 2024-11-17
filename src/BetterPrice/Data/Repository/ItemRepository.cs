@@ -1,4 +1,5 @@
 ﻿using BetterPrice.Entities;
+using BetterPrice.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace BetterPrice.Data.Repository;
@@ -11,34 +12,31 @@ public class ItemRepository
         _itemPrecos = context.ItemPrecos;
     }
 
-    public Task<List<ItemPreco>> CarregarDestaques() => QueryBase().Where(p => p.Destaque).ToListAsync();
     public Task<List<ItemPreco>> CarregarFavoritos() => throw new NotImplementedException();
-    public Task<List<ItemPreco>> CarregarItems(string? nome = null,
-                                               string? ean = null,
-                                               bool ordenarMenorMaior = false,
-                                               bool ordenarMaiorMenor = false,
-                                               int[]? categorias = null,
-                                               int[]? departamentos = null)
+    public Task<List<ItemPreco>> CarregarItems(FiltroProduto filtro)
     {
         var query = QueryBase();
 
-        if (!string.IsNullOrEmpty(nome))
-            query = query.Where(i => i.Produto.Nome.Contains(nome));
+        if (!string.IsNullOrEmpty(filtro.Nome))
+            query = query.Where(i => i.Produto.Nome.Contains(filtro.Nome));
 
-        if (!string.IsNullOrEmpty(ean))
-            query = query.Where(i => i.Produto.EAN == ean);
+        if (!string.IsNullOrEmpty(filtro.Ean))
+            query = query.Where(i => i.Produto.EAN == filtro.Ean);
 
-        if (categorias is not null)
-            query = query.Where(i => categorias.Contains(i.Produto.CategoriaId));
+        if (filtro.Categorias is not null)
+            query = query.Where(i => filtro.Categorias.Contains(i.Produto.CategoriaId));
 
-        if (departamentos is not null)
-            query = query.Where(i => departamentos.Contains(i.Produto.DepartamentoId));
+        if (filtro.Departamentos is not null)
+            query = query.Where(i => filtro.Departamentos.Contains(i.Produto.DepartamentoId));
 
-        if (ordenarMenorMaior)
+        if (filtro.OrdernarMenorMaior)
             query = query.OrderBy(i => i.Valor);
 
-        if (ordenarMaiorMenor)
+        if (filtro.OrdenarMaiorMenor)
             query = query.OrderByDescending(i => i.Valor);
+
+        if (filtro.ApenasDestaques)
+            query = query.Where(i => i.Destaque);
 
         return query.ToListAsync();
     }
