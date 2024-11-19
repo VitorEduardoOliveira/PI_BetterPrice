@@ -12,7 +12,6 @@ public class ItemRepository
         _itemPrecos = context.ItemPrecos;
     }
 
-    public Task<List<ItemPreco>> CarregarFavoritos() => throw new NotImplementedException();
     public Task<List<ItemPreco>> CarregarItems(FiltroProduto filtro)
     {
         var query = QueryBase();
@@ -44,6 +43,4 @@ public class ItemRepository
     private IQueryable<ItemPreco> QueryBase() => _itemPrecos
         .Include(i => i.Produto)
         .Include(i => i.Mercado);
-
-
 }

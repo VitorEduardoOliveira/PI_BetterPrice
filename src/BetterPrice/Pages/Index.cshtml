@@ -20,10 +20,10 @@
             <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
         </form>
         
-        @Component.InvokeAsync("MercadosCarousel")
+       @await Component.InvokeAsync("MercadosCarousel")
     </div>
     
-    @Component.InvokeAsync("ProdutoList", new
+    @await Component.InvokeAsync("ProdutoList", new
     {
         tipoListaProduto = TipoListaProduto.Cards,
         filtroProduto = new FiltroProduto() { ApenasDestaques = true }

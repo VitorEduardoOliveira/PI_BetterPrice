@@ -1,10 +1,9 @@
 ﻿using BetterPrice.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BetterPrice.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,6 +22,30 @@ namespace BetterPrice.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // Mercado
+            builder.Entity<Mercado>(mercado =>
+            {
+                mercado.HasKey(m => m.Id);
+                mercado.Property(m => m.Id).ValueGeneratedOnAdd();
+            });
+            builder.MercadosPadroes();
+
+            //Categoria
+            builder.Entity<Categoria>(categoria =>
+            {
+                categoria.HasKey(c => c.Id);
+                categoria.Property(c => c.Id).ValueGeneratedOnAdd();
+            });
+            builder.CategoriasPadroes();
+
+            //Departamento
+            builder.Entity<Departamento>(departamento =>
+            {
+                departamento.HasKey(d => d.Id);
+                departamento.Property(d => d.Id).ValueGeneratedOnAdd();
+            });
+
+            //Produto
             builder.Entity<Produto>(produto =>
             {
                 produto.HasKey(p => p.Id);
@@ -31,13 +54,9 @@ namespace BetterPrice.Data
                 produto.HasOne(p => p.Categoria);
                 produto.HasOne(p => p.Departamento);
             });
+            builder.ProdutosPadroes();
 
-            builder.Entity<Mercado>(mercado =>
-            {
-                mercado.HasKey(m => m.Id);
-                mercado.Property(m => m.Id).ValueGeneratedOnAdd();
-            });
-
+            //Preco
             builder.Entity<ItemPreco>(itemPreco =>
             {
                 itemPreco.HasKey(i => i.Id);
@@ -46,7 +65,7 @@ namespace BetterPrice.Data
                 builder.Entity<ItemPreco>().HasOne(i => i.Produto);
                 builder.Entity<ItemPreco>().HasOne(i => i.Mercado);
             });
-
+            builder.PrecosPadroes();
         }
     }
 }

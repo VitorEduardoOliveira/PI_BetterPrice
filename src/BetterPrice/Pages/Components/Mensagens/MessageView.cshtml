@@ -1,0 +1,18 @@
+﻿@using BetterPrice.ViewModels
+@model BetterPrice.ViewModels.Mensagem
+
+@if (Model.TipoMensagem == TipoMensagem.Sucesso)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.Descricao
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (Model.TipoMensagem == TipoMensagem.Erro)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @Model.Descricao
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}

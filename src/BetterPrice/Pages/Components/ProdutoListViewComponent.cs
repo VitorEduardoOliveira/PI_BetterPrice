@@ -7,12 +7,10 @@ namespace BetterPrice.Pages.Components;
 public class ProdutoListViewComponent : ViewComponent
 {
     private readonly ItemRepository _itemRepository;
-    private readonly CarrinhoRepository _carrinhoRepository;
 
-    public ProdutoListViewComponent(ItemRepository itemRepository, CarrinhoRepository carrinhoRepository)
+    public ProdutoListViewComponent(ItemRepository itemRepository)
     {
         _itemRepository = itemRepository;
-        _carrinhoRepository = carrinhoRepository;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(TipoListaProduto tipoListaProduto, FiltroProduto filtroProduto)
@@ -25,8 +23,6 @@ public class ProdutoListViewComponent : ViewComponent
             Itens = listItens
         });
     }
-
-    public
 }
 
 public enum TipoListaProduto

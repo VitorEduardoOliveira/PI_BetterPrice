@@ -16,5 +16,9 @@ public class CarrinhoRepository
     {
         throw new NotImplementedException();
     }
-    public Task<Carrinho> CarregarCarrinho(int usuarioId) => _carrinhos.Include(c => c.Items).FirstAsync(c => c.UsuarioId == usuarioId);
+    public Task<List<ItemPreco>> CarregarCarrinho(int usuarioId) => _carrinhos
+            .Include(c => c.Items).ThenInclude(i => i.Mercado)
+            .Where(c => c.UsuarioId == usuarioId)
+            .SelectMany(s => s.Items)
+            .ToListAsync();
 }
