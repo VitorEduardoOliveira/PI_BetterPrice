@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Usuário - BetterPrice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ajuste para manter o footer no final */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            background-color: #007bff; /* Cor primária */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BetterPrice</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Página Inicial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ajuda</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-5">
+        <h2 class="text-center">Bem-vindo, [Nome do Usuário]</h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Seus Dados</h5>
+                        <p><strong>Nome:</strong> [Nome do Usuário]</p>
+                        <p><strong>CPF:</strong> [CPF]</p>
+                        <p><strong>Data de Nascimento:</strong> [Data de Nascimento]</p>
+                        <p><strong>Email:</strong> [Email do Usuário]</p>
+                        <p><strong>Endereço:</strong> [Endereço do Usuário]</p>
+                        <button class="btn btn-primary mt-3" onclick="window.location.href='carrinho.html'">Ir para o Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 BetterPrice. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
