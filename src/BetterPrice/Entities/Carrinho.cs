@@ -6,6 +6,7 @@ namespace BetterPrice.Entities;
 public class Carrinho
 {
     public int Id { get; set; }
-    public int UsuarioId { get; set; }
+    public required int UsuarioId { get; set; }
+    public Usuario Usuario { get; set; }
     public List<ItemPreco> Items { get; set; }
 }

@@ -1,17 +1,19 @@
 using BetterPrice.Data.Repository;
 using BetterPrice.Entities;
 using BetterPrice.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BetterPrice.Pages;
 
+[Authorize]
 public class CarrinhoModel : PageModel
 {
     private readonly CarrinhoRepository _carrinhoRepository;
 
-    public IEnumerable<ItemCarrinhoVM>? Items { get; set; }
+    public IEnumerable<ItemCarrinhoVM>? ProdutosPorMercados { get; set; }
 
     public CarrinhoModel(CarrinhoRepository carrinhoRepository)
     {
@@ -27,7 +29,7 @@ public class CarrinhoModel : PageModel
         }
 
         var items = await _carrinhoRepository.CarregarCarrinho(int.Parse(userId));
-        Items = items.GroupBy(m => m.Mercado, m => m, (m, items) => new ItemCarrinhoVM
+        ProdutosPorMercados = items.GroupBy(m => m.Mercado, m => m, (m, items) => new ItemCarrinhoVM
         {
             Mercado = m,
             Items = items

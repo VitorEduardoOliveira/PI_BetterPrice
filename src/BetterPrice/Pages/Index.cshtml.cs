@@ -23,5 +23,12 @@ namespace BetterPrice.Pages
 
             RedirectToPage("Produtos");
         }
+
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Index");
+        }
+
     }
 }

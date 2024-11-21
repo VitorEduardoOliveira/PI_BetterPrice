@@ -12,5 +12,5 @@ public class ItemPreco
     public decimal Oferta { get; set; }
     public bool Destaque { get; set; }
 
-    public List<Carrinho>? CarrinhosIncluso { get; set; }
+    //public List<Carrinho>? CarrinhosIncluso { get; set; }
 }

@@ -4,8 +4,8 @@ namespace BetterPrice.ViewModels;
 
 public class ItemCarrinhoVM
 {
-    public Mercado Mercado { get; set; }
-    public IEnumerable<ItemPreco> Items { get; set; }
+    public required Mercado Mercado { get; set; }
+    public required IEnumerable<ItemPreco> Items { get; set; }
 
 
     public decimal TotalPorMercado()

@@ -22,6 +22,13 @@ namespace BetterPrice.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // Usuario
+            builder.Entity<Usuario>(usuario =>
+            {
+                usuario.HasKey(i => i.Id);
+                usuario.Property(i => i.Id).ValueGeneratedOnAdd();
+            });
+
             // Mercado
             builder.Entity<Mercado>(mercado =>
             {
@@ -30,7 +37,7 @@ namespace BetterPrice.Data
             });
             builder.MercadosPadroes();
 
-            //Categoria
+            // Categoria
             builder.Entity<Categoria>(categoria =>
             {
                 categoria.HasKey(c => c.Id);
@@ -38,14 +45,14 @@ namespace BetterPrice.Data
             });
             builder.CategoriasPadroes();
 
-            //Departamento
+            // Departamento
             builder.Entity<Departamento>(departamento =>
             {
                 departamento.HasKey(d => d.Id);
                 departamento.Property(d => d.Id).ValueGeneratedOnAdd();
             });
 
-            //Produto
+            // Produto
             builder.Entity<Produto>(produto =>
             {
                 produto.HasKey(p => p.Id);
@@ -66,6 +73,14 @@ namespace BetterPrice.Data
                 builder.Entity<ItemPreco>().HasOne(i => i.Mercado);
             });
             builder.PrecosPadroes();
+
+            //Carrinho
+            builder.Entity<Carrinho>(carrinho =>
+            {
+                carrinho.HasKey(c => c.Id);
+
+                carrinho.HasMany(c => c.Items);
+            });
         }
     }
 }

@@ -1554,7 +1554,7 @@ namespace BetterPrice.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Login")
+                    b.Property<string>("LoginViewComponent")
                         .IsRequired()
                         .HasColumnType("text");
 
