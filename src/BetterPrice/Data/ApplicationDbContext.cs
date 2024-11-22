@@ -51,6 +51,7 @@ namespace BetterPrice.Data
                 departamento.HasKey(d => d.Id);
                 departamento.Property(d => d.Id).ValueGeneratedOnAdd();
             });
+            builder.DepartamentosPadroes();
 
             // Produto
             builder.Entity<Produto>(produto =>

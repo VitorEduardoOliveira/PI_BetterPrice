@@ -11,14 +11,10 @@ namespace BetterPrice.Pages.Login
     public class ProcessarCadastroModel : PageModel
     {
         private readonly UsuarioRepository _userRepository;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public ProcessarCadastroModel(UsuarioRepository userRepository, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ProcessarCadastroModel(UsuarioRepository userRepository)
         {
             _userRepository = userRepository;
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         public async Task<IActionResult> OnPostAsync(string name, string email, DateTime dataNascimento, string password)
@@ -32,7 +28,6 @@ namespace BetterPrice.Pages.Login
 
             var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
-            // Create the Usuario object
             var usuario = new Usuario
             {
                 Nome = name,

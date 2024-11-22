@@ -1,0 +1,23 @@
+﻿@page
+@model BetterPrice.Pages.PerfilModel
+@{
+    <!-- Conteúdo Principal -->
+    <main class="container mt-5">
+        <h2 class="text-center">Bem-vindo, @Model.Usuario.Nome</h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Seus Dados</h5>
+                        <p><strong>Nome:</strong>@Model.Usuario.Nome</p>
+                        <p><strong>CPF:</strong> @Model.Usuario.CPF</p>
+                        <p><strong>Data de Nascimento:</strong>@Model.Usuario.DataNascimento</p>
+                        <p><strong>Email:</strong>@Model.Usuario.Email</p>
+                        <p><strong>Endereço:</strong> Rua exemplo</p>
+                        <button class="btn btn-primary mt-3" onclick="window.location.href='carrinho.html'">Ir para o Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+}

@@ -5,24 +5,34 @@
 
 <div class="modal-body">
     <div class="container d-flex justify-content-center align-items-center">
-        <form>
+        <form method="post" asp-page="/Login/ProcessarLogin">
             <!-- Nome -->
             <div class="mb-3">
-                <label for="name" class="form-label">Nome Completo</label>
-                <input type="text" class="form-control" id="name" placeholder="Digite seu nome completo" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Digite seu email" required>
             </div>
 
             <!-- Senha -->
             <div class="mb-3">
-                <label for="password" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
             </div>
+            
+            <!-- Exibir mensagens de erro -->
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <p>@error.ErrorMessage</p>
+                    }
+                </div>
+            }
 
             <!-- Botão de Envio -->
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
-            
             
             <!-- Google button -->
             <div class="d-grid gap-2 mt-3">

@@ -7,7 +7,10 @@ public static class BetterPriceServices
 {
     public static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
-        return services.AddTransient<CarrinhoService>();
+        return services
+            .AddTransient<CarrinhoService>()
+            .AddTransient<AuthenticationHelper>();
+
     }
 
     public static IServiceCollection AddRepositories(this IServiceCollection services)
@@ -17,6 +20,7 @@ public static class BetterPriceServices
             .AddTransient<CategoriaRepository>()
             .AddTransient<DepartamentoRepository>()
             .AddTransient<ItemRepository>()
-            .AddTransient<MercadoRepository>();
+            .AddTransient<MercadoRepository>()
+            .AddTransient<UsuarioRepository>();
     }
 }

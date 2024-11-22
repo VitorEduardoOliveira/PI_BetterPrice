@@ -10,14 +10,10 @@ namespace BetterPrice.Pages.Login
     public class GoogleLoginModel : PageModel
     {
         private readonly UsuarioRepository _userRepository;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public GoogleLoginModel(UsuarioRepository userRepository, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public GoogleLoginModel(UsuarioRepository userRepository)
         {
             _userRepository = userRepository;
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         public async Task<IActionResult> OnGetAsync()

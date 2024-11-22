@@ -14,7 +14,7 @@ services:
       - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=admin;Password=123;Database=bp
     volumes:
       - ./app-data:/app/images 
-    command: ["sh", "-c", "dotnet ef database update && dotnet MyApp.dll"]  # Run migrations before starting the app- 
+    command: ["sh", "-c", "dotnet ef database update && dotnet BeeterPrice.dll"]  # Run migrations before starting the app- 
     depends_on:
       - db
 

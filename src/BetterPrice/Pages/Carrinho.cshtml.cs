@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BetterPrice.Pages;
 
-[Authorize]
 public class CarrinhoModel : PageModel
 {
     private readonly CarrinhoRepository _carrinhoRepository;
@@ -25,7 +24,7 @@ public class CarrinhoModel : PageModel
 
         if (userId == null)
         {
-
+            RedirectToPage("Index");
         }
 
         var items = await _carrinhoRepository.CarregarCarrinho(int.Parse(userId));

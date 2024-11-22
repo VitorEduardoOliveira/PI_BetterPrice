@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BetterPrice.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241119023410_Inicial")]
+    [Migration("20241122004025_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -37,6 +37,8 @@ namespace BetterPrice.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Carrinhos");
                 });
@@ -140,6 +142,58 @@ namespace BetterPrice.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departamentos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nome = "Alimentos"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nome = "Bebidas"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nome = "Limpeza"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nome = "Higiene Pessoal"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nome = "Frios"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nome = "Congelados"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nome = "Padaria"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nome = "Frutas e Verduras"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Nome = "Carnes"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Nome = "Mercearia"
+                        });
                 });
 
             modelBuilder.Entity("BetterPrice.Entities.ItemPreco", b =>
@@ -149,6 +203,9 @@ namespace BetterPrice.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CarrinhoId")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("Destaque")
                         .HasColumnType("boolean");
@@ -166,6 +223,8 @@ namespace BetterPrice.Migrations
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CarrinhoId");
 
                     b.HasIndex("MercadoId");
 
@@ -1557,40 +1616,38 @@ namespace BetterPrice.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Senha")
-                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("TipoAutenticacao")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("CarrinhoItemPreco", b =>
+            modelBuilder.Entity("BetterPrice.Entities.Carrinho", b =>
                 {
-                    b.Property<int>("CarrinhosInclusoId")
-                        .HasColumnType("integer");
+                    b.HasOne("BetterPrice.Entities.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("ItemsId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("CarrinhosInclusoId", "ItemsId");
-
-                    b.HasIndex("ItemsId");
-
-                    b.ToTable("CarrinhoItemPreco");
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("BetterPrice.Entities.ItemPreco", b =>
                 {
+                    b.HasOne("BetterPrice.Entities.Carrinho", null)
+                        .WithMany("Items")
+                        .HasForeignKey("CarrinhoId");
+
                     b.HasOne("BetterPrice.Entities.Mercado", "Mercado")
                         .WithMany()
                         .HasForeignKey("MercadoId")
@@ -1627,19 +1684,9 @@ namespace BetterPrice.Migrations
                     b.Navigation("Departamento");
                 });
 
-            modelBuilder.Entity("CarrinhoItemPreco", b =>
+            modelBuilder.Entity("BetterPrice.Entities.Carrinho", b =>
                 {
-                    b.HasOne("BetterPrice.Entities.Carrinho", null)
-                        .WithMany()
-                        .HasForeignKey("CarrinhosInclusoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BetterPrice.Entities.ItemPreco", null)
-                        .WithMany()
-                        .HasForeignKey("ItemsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

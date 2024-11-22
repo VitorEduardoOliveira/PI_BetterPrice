@@ -5,18 +5,60 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BetterPrice.Pages.ProdutosModel
 @{
-    <h1>Encontre o melhor preço para você</h1>
-    <p>Explore nossas ofertas e encontre o melhor preço para você.</p>
-
-    <!-- Caixa de pesquisa com bordas arredondadas -->
-    <form role="search" class="d-flex justify-content-center align-items-center">
-        <input asp-for="Filtro.Nome" class="form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
-        <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
-    </form>
-
-    @Component.InvokeAsync("ProdutoList", new
-    {
-        tipoListaProduto = TipoListaProduto.Cards,
-        filtroProduto = Model.Filtro
-    })
+    <!-- Conteúdo Principal -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Filtros Laterais -->
+            <aside class="col-md-3">
+                <h5>Filtros</h5>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Categorias</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Alimentos" id="alimentos">
+                            <label class="form-check-label" for="alimento">Alimentos</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Bebidas" id="bebidas">
+                            <label class="form-check-label" for="bebidas">Bebidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Higiene" id="higiene">
+                            <label class="form-check-label" for="higiene">Higiene</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Preço</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="low" id="baixo">
+                            <label class="form-check-label" for="baixo">Até R$ 50</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="medium" id="medio">
+                            <label class="form-check-label" for="medio">R$ 51 - R$ 200</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="high" id="alto">
+                            <label class="form-check-label" for="alto">Acima de R$ 200</label>
+                        </div>
+                    </div>
+                </form>
+            </aside>
+            
+            <section class="col-md-9">
+                <!-- Caixa de pesquisa com bordas arredondadas -->
+                <form role="search" class="d-flex justify-content-center align-items-center">
+                    <input asp-for="Filtro.Nome" class="form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
+                    <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
+                </form>
+                <h5>Resultados</h5>
+                @Component.InvokeAsync("ProdutoList", new
+                {
+                    tipoListaProduto = TipoListaProduto.Cards,
+                    filtroProduto = Model.Filtro
+                })
+            </section>
+            
+        </div>
+    </div>
 }

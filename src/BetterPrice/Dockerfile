@@ -28,3 +28,6 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BetterPrice.dll"]
+
+# Enable debugging by setting the environment to Development
+ENV ASPNETCORE_ENVIRONMENT=Development

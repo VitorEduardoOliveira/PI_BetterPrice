@@ -18,7 +18,7 @@ namespace BetterPrice.Pages.Login
             _signInManager = signInManager;
         }
 
-        public async Task<IActionResult> OnPostAsync(string email, string password)
+        public async Task<IActionResult> OnPostAsync(string email, string senha)
         {
             // Procura email
             var usuario = await _userRepository.CarregarUsuarioPorEmail(email);
@@ -30,7 +30,7 @@ namespace BetterPrice.Pages.Login
             }
 
             // Verificando senha
-            if (usuario.TipoAutenticacao == TipoAutenticacao.App && BCrypt.Net.BCrypt.Verify(password, usuario.Senha))
+            if (usuario.TipoAutenticacao == TipoAutenticacao.App && BCrypt.Net.BCrypt.Verify(senha, usuario.Senha))
             {
                 HttpContext.Session.SetString("UserId", usuario.Id.ToString());
                 return RedirectToPage("/Index");

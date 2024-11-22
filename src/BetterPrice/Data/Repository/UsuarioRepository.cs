@@ -29,5 +29,10 @@ namespace BetterPrice.Data.Repository
             await _usuarios.AddAsync(usuario);
             await _dbContext.SaveChangesAsync();
         }
+
+        public ValueTask<Usuario?> CarregarUsuario(int id)
+        {
+            return _usuarios.FindAsync(id);
+        }
     }
 }
