@@ -17,7 +17,7 @@ namespace BetterPrice.Pages.Login
             _userRepository = userRepository;
         }
 
-        public async Task<IActionResult> OnPostAsync(string name, string email, DateTime dataNascimento, string password)
+        public async Task<IActionResult> OnPostAsync(string nome, string email, string cpf, DateTime dataNascimento, string senha)
         {
             // checa se o email existe
             if (await _userRepository.ExisteUsuario(email))
@@ -26,13 +26,14 @@ namespace BetterPrice.Pages.Login
                 return Page();
             }
 
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(senha);
 
             var usuario = new Usuario
             {
-                Nome = name,
-                DataNascimento = dataNascimento,
+                Nome = nome,
+                DataNascimento = DateTime.SpecifyKind(dataNascimento, DateTimeKind.Utc),
                 Email = email,
+                CPF = cpf,
                 Senha = hashedPassword,
                 TipoAutenticacao = TipoAutenticacao.App
             };

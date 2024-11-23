@@ -80,6 +80,7 @@ namespace BetterPrice.Data
             {
                 carrinho.HasKey(c => c.Id);
 
+                carrinho.HasOne(c => c.Usuario);
                 carrinho.HasMany(c => c.Items);
             });
         }

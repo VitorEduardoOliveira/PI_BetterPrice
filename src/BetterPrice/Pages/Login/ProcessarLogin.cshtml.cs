@@ -10,12 +10,10 @@ namespace BetterPrice.Pages.Login
     public class ProcessarLoginModel : PageModel
     {
         private readonly UsuarioRepository _userRepository;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public ProcessarLoginModel(UsuarioRepository userRepository, SignInManager<IdentityUser> signInManager)
+        public ProcessarLoginModel(UsuarioRepository userRepository)
         {
             _userRepository = userRepository;
-            _signInManager = signInManager;
         }
 
         public async Task<IActionResult> OnPostAsync(string email, string senha)

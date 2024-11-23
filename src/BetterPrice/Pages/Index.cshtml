@@ -15,17 +15,17 @@
         <p>Explore nossas ofertas e encontre o melhor preço para você.</p>
 
         <!-- Caixa de pesquisa com bordas arredondadas -->
-        <form role="search" class="d-flex justify-content-center align-items-center">
-            <input asp-for="Filtro.Nome" class="form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
+        <form role="search" class="search-form d-flex justify-content-center align-items-center">
+            <input asp-for="Filtro.Nome" class="search-form form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
             <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
         </form>
         
        @await Component.InvokeAsync("MercadosCarousel")
     </div>
-    <!--
-    @await Component.InvokeAsync("ProdutoList", new
-    {
-        tipoListaProduto = TipoListaProduto.Cards,
-        filtroProduto = new FiltroProduto() { ApenasDestaques = true }
-        })-->
 </div>  
+
+@await Component.InvokeAsync("ProdutoList", new
+{
+    tipoListaProduto = TipoListaProduto.Cards,
+    filtroProduto = new FiltroProduto() { ApenasDestaques = true }
+})

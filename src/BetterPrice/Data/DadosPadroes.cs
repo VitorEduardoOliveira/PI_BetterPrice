@@ -51,80 +51,80 @@ public static class DadosPadroes
     {
         modelBuilder.Entity<Produto>().HasData(
             // Produtos do departamento de Alimentos, categoria Grãos
-            new Produto { Id = 1, Nome = "Arroz Integral", Descricao = "Arroz integral de 5kg.", EAN = "7891234560011", UrlImagem = "https://example.com/arroz_integral.jpg", DepartamentoId = 1, CategoriaId = 1 },
-            new Produto { Id = 2, Nome = "Feijão Preto", Descricao = "Feijão preto de 1kg.", EAN = "7891234560022", UrlImagem = "https://example.com/feijao_preto.jpg", DepartamentoId = 1, CategoriaId = 1 },
-            new Produto { Id = 3, Nome = "Macarrão Instantâneo", Descricao = "Macarrão instantâneo de 80g.", EAN = "7891234560033", UrlImagem = "https://example.com/macarrao_instantaneo.jpg", DepartamentoId = 1, CategoriaId = 2 },
-            new Produto { Id = 4, Nome = "Óleo de Soja", Descricao = "Óleo de soja 900ml.", EAN = "7891234560044", UrlImagem = "https://example.com/oleo_soja.jpg", DepartamentoId = 1, CategoriaId = 3 },
-            new Produto { Id = 5, Nome = "Chocolate ao Leite", Descricao = "Chocolate ao leite 200g.", EAN = "7891234560055", UrlImagem = "https://example.com/chocolate_ao_leite.jpg", DepartamentoId = 1, CategoriaId = 4 },
+            new Produto { Id = 1, Nome = "Arroz Integral", Descricao = "Arroz integral de 5kg.", EAN = "7891234560011", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 1 },
+            new Produto { Id = 2, Nome = "Feijão Preto", Descricao = "Feijão preto de 1kg.", EAN = "7891234560022", UrlImagem = "https://propao.agilecdn.com.br/4493_1.jpg", DepartamentoId = 1, CategoriaId = 1 },
+            new Produto { Id = 3, Nome = "Macarrão Instantâneo", Descricao = "Macarrão instantâneo de 80g.", EAN = "7891234560033", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 2 },
+            new Produto { Id = 4, Nome = "Óleo de Soja", Descricao = "Óleo de soja 900ml.", EAN = "7891234560044", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 3 },
+            new Produto { Id = 5, Nome = "Chocolate ao Leite", Descricao = "Chocolate ao leite 200g.", EAN = "7891234560055", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 4 },
 
             // Produtos do departamento de Bebidas, categoria Refrigerantes
-            new Produto { Id = 6, Nome = "Refrigerante de Cola", Descricao = "Refrigerante de cola 2L.", EAN = "7891234560066", UrlImagem = "https://example.com/refrigerante_cola.jpg", DepartamentoId = 2, CategoriaId = 5 },
-            new Produto { Id = 7, Nome = "Refrigerante de Laranja", Descricao = "Refrigerante de laranja 2L.", EAN = "7891234560077", UrlImagem = "https://example.com/refrigerante_laranja.jpg", DepartamentoId = 2, CategoriaId = 5 },
-            new Produto { Id = 8, Nome = "Suco de Uva", Descricao = "Suco de uva integral 1L.", EAN = "7891234560088", UrlImagem = "https://example.com/suco_uva.jpg", DepartamentoId = 2, CategoriaId = 6 },
-            new Produto { Id = 9, Nome = "Suco de Laranja", Descricao = "Suco de laranja natural 1L.", EAN = "7891234560099", UrlImagem = "https://example.com/suco_laranja.jpg", DepartamentoId = 2, CategoriaId = 6 },
-            new Produto { Id = 10, Nome = "Água Mineral", Descricao = "Água mineral 500ml.", EAN = "7891234560100", UrlImagem = "https://example.com/agua_mineral.jpg", DepartamentoId = 2, CategoriaId = 7 },
+            new Produto { Id = 6, Nome = "Refrigerante de Cola", Descricao = "Refrigerante de cola 2L.", EAN = "7891234560066", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 5 },
+            new Produto { Id = 7, Nome = "Refrigerante de Laranja", Descricao = "Refrigerante de laranja 2L.", EAN = "7891234560077", UrlImagem = "https://coopsp.vtexassets.com/arquivos/ids/215362-800-auto?v=637919527220430000&width=800&height=auto&aspect=true", DepartamentoId = 2, CategoriaId = 5 },
+            new Produto { Id = 8, Nome = "Suco de Uva", Descricao = "Suco de uva integral 1L.", EAN = "7891234560088", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 6 },
+            new Produto { Id = 9, Nome = "Suco de Laranja", Descricao = "Suco de laranja natural 1L.", EAN = "7891234560099", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 6 },
+            new Produto { Id = 10, Nome = "Água Mineral", Descricao = "Água mineral 500ml.", EAN = "7891234560100", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 7 },
 
             // Produtos do departamento de Higiene Pessoal, categoria Shampoos
-            new Produto { Id = 11, Nome = "Shampoo Anticaspa", Descricao = "Shampoo anticaspa 200ml.", EAN = "7891234560111", UrlImagem = "https://example.com/shampoo_anticaspa.jpg", DepartamentoId = 3, CategoriaId = 8 },
-            new Produto { Id = 12, Nome = "Shampoo Hidratante", Descricao = "Shampoo hidratante 200ml.", EAN = "7891234560122", UrlImagem = "https://example.com/shampoo_hidratante.jpg", DepartamentoId = 3, CategoriaId = 8 },
-            new Produto { Id = 13, Nome = "Condicionador Fortalecedor", Descricao = "Condicionador fortalecedor 200ml.", EAN = "7891234560133", UrlImagem = "https://example.com/condicionador_fortalecedor.jpg", DepartamentoId = 3, CategoriaId = 8 },
-            new Produto { Id = 14, Nome = "Sabonete Líquido", Descricao = "Sabonete líquido 250ml.", EAN = "7891234560144", UrlImagem = "https://example.com/sabonete_liquido.jpg", DepartamentoId = 3, CategoriaId = 9 },
-            new Produto { Id = 15, Nome = "Escova Dental", Descricao = "Escova dental macia.", EAN = "7891234560155", UrlImagem = "https://example.com/escova_dental.jpg", DepartamentoId = 3, CategoriaId = 10 },
+            new Produto { Id = 11, Nome = "Shampoo Anticaspa", Descricao = "Shampoo anticaspa 200ml.", EAN = "7891234560111", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 8 },
+            new Produto { Id = 12, Nome = "Shampoo Hidratante", Descricao = "Shampoo hidratante 200ml.", EAN = "7891234560122", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 8 },
+            new Produto { Id = 13, Nome = "Condicionador Fortalecedor", Descricao = "Condicionador fortalecedor 200ml.", EAN = "7891234560133", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 8 },
+            new Produto { Id = 14, Nome = "Sabonete Líquido", Descricao = "Sabonete líquido 250ml.", EAN = "7891234560144", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 9 },
+            new Produto { Id = 15, Nome = "Escova Dental", Descricao = "Escova dental macia.", EAN = "7891234560155", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 10 },
 
             // Produtos do departamento de Limpeza, categoria Detergentes
-            new Produto { Id = 16, Nome = "Detergente Neutro", Descricao = "Detergente neutro 500ml.", EAN = "7891234560166", UrlImagem = "https://example.com/detergente_neutro.jpg", DepartamentoId = 4, CategoriaId = 11 },
-            new Produto { Id = 17, Nome = "Detergente de Coco", Descricao = "Detergente de coco 500ml.", EAN = "7891234560177", UrlImagem = "https://example.com/detergente_coco.jpg", DepartamentoId = 4, CategoriaId = 11 },
-            new Produto { Id = 18, Nome = "Desinfetante Floral", Descricao = "Desinfetante floral 500ml.", EAN = "7891234560188", UrlImagem = "https://example.com/desinfetante_floral.jpg", DepartamentoId = 4, CategoriaId = 12 },
-            new Produto { Id = 19, Nome = "Desinfetante Limão", Descricao = "Desinfetante de limão 500ml.", EAN = "7891234560199", UrlImagem = "https://example.com/desinfetante_limao.jpg", DepartamentoId = 4, CategoriaId = 12 },
-            new Produto { Id = 20, Nome = "Esponja de Aço", Descricao = "Esponja de aço 3 unidades.", EAN = "7891234560200", UrlImagem = "https://example.com/esponja_aco.jpg", DepartamentoId = 4, CategoriaId = 13 },
+            new Produto { Id = 16, Nome = "Detergente Neutro", Descricao = "Detergente neutro 500ml.", EAN = "7891234560166", UrlImagem = "https://tb0932.vtexassets.com/arquivos/ids/162732-800-auto?v=637705337202370000&width=800&height=auto&aspect=true", DepartamentoId = 4, CategoriaId = 11 },
+            new Produto { Id = 17, Nome = "Detergente de Coco", Descricao = "Detergente de coco 500ml.", EAN = "7891234560177", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 11 },
+            new Produto { Id = 18, Nome = "Desinfetante Floral", Descricao = "Desinfetante floral 500ml.", EAN = "7891234560188", UrlImagem = "https://images.tcdn.com.br/img/img_prod/1213476/desinfetante_5_litros_guimaraes_floral_2655_1_ef004baff3bc763e9629435d6a8b1c0c.jpg", DepartamentoId = 4, CategoriaId = 12 },
+            new Produto { Id = 19, Nome = "Desinfetante Limão", Descricao = "Desinfetante de limão 500ml.", EAN = "7891234560199", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 12 },
+            new Produto { Id = 20, Nome = "Esponja de Aço", Descricao = "Esponja de aço 3 unidades.", EAN = "7891234560200", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 13 },
 
             // Produtos adicionais para outros departamentos e categorias
-            new Produto { Id = 21, Nome = "Arroz Parboilizado", Descricao = "Arroz parboilizado 5kg.", EAN = "7891234560211", UrlImagem = "https://example.com/arroz_parboilizado.jpg", DepartamentoId = 1, CategoriaId = 1 },
-            new Produto { Id = 22, Nome = "Macarrão Espaguete", Descricao = "Macarrão espaguete 500g.", EAN = "7891234560222", UrlImagem = "https://example.com/macarrao_espaguete.jpg", DepartamentoId = 1, CategoriaId = 2 },
-            new Produto { Id = 23, Nome = "Molho de Tomate", Descricao = "Molho de tomate 340g.", EAN = "7891234560233", UrlImagem = "https://example.com/molho_tomate.jpg", DepartamentoId = 1, CategoriaId = 3 },
-            new Produto { Id = 24, Nome = "Biscoito Recheado", Descricao = "Biscoito recheado 150g.", EAN = "7891234560244", UrlImagem = "https://example.com/biscoito_recheado.jpg", DepartamentoId = 1, CategoriaId = 4 },
-            new Produto { Id = 25, Nome = "Suco de Abacaxi", Descricao = "Suco de abacaxi 1L.", EAN = "7891234560255", UrlImagem = "https://example.com/suco_abacaxi.jpg", DepartamentoId = 2, CategoriaId = 6 },
+            new Produto { Id = 21, Nome = "Arroz Parboilizado", Descricao = "Arroz parboilizado 5kg.", EAN = "7891234560211", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 1 },
+            new Produto { Id = 22, Nome = "Macarrão Espaguete", Descricao = "Macarrão espaguete 500g.", EAN = "7891234560222", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 2 },
+            new Produto { Id = 23, Nome = "Molho de Tomate", Descricao = "Molho de tomate 340g.", EAN = "7891234560233", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 3 },
+            new Produto { Id = 24, Nome = "Biscoito Recheado", Descricao = "Biscoito recheado 150g.", EAN = "7891234560244", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 4 },
+            new Produto { Id = 25, Nome = "Suco de Abacaxi", Descricao = "Suco de abacaxi 1L.", EAN = "7891234560255", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 6 },
 
                         
-            new Produto { Id = 26, Nome = "Biscoito Salgado", Descricao = "Biscoito salgado 200g.", EAN = "7891234560266", UrlImagem = "https://example.com/biscoito_salgado.jpg", DepartamentoId = 1, CategoriaId = 4 },
-            new Produto { Id = 27, Nome = "Queijo Prato", Descricao = "Queijo prato fatiado 300g.", EAN = "7891234560277", UrlImagem = "https://example.com/queijo_prato.jpg", DepartamentoId = 5, CategoriaId = 5 },
-            new Produto { Id = 28, Nome = "Presunto", Descricao = "Presunto fatiado 300g.", EAN = "7891234560288", UrlImagem = "https://example.com/presunto.jpg", DepartamentoId = 5, CategoriaId = 5 },
-            new Produto { Id = 29, Nome = "Mortadela", Descricao = "Mortadela fatiada 300g.", EAN = "7891234560299", UrlImagem = "https://example.com/mortadela.jpg", DepartamentoId = 5, CategoriaId = 5 },
-            new Produto { Id = 30, Nome = "Leite Condensado", Descricao = "Leite condensado 395g.", EAN = "7891234560300", UrlImagem = "https://example.com/leite_condensado.jpg", DepartamentoId = 1, CategoriaId = 4 },
+            new Produto { Id = 26, Nome = "Biscoito Salgado", Descricao = "Biscoito salgado 200g.", EAN = "7891234560266", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 4 },
+            new Produto { Id = 27, Nome = "Queijo Prato", Descricao = "Queijo prato fatiado 300g.", EAN = "7891234560277", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 5, CategoriaId = 5 },
+            new Produto { Id = 28, Nome = "Presunto", Descricao = "Presunto fatiado 300g.", EAN = "7891234560288", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 5, CategoriaId = 5 },
+            new Produto { Id = 29, Nome = "Mortadela", Descricao = "Mortadela fatiada 300g.", EAN = "7891234560299", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 5, CategoriaId = 5 },
+            new Produto { Id = 30, Nome = "Leite Condensado", Descricao = "Leite condensado 395g.", EAN = "7891234560300", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 4 },
 
             // Produtos do departamento de Higiene Pessoal, categoria Sabonetes
-            new Produto { Id = 31, Nome = "Sabonete em Barra", Descricao = "Sabonete em barra 90g.", EAN = "7891234560311", UrlImagem = "https://example.com/sabonete_barra.jpg", DepartamentoId = 3, CategoriaId = 9 },
-            new Produto { Id = 32, Nome = "Sabonete de Coco", Descricao = "Sabonete de coco 90g.", EAN = "7891234560322", UrlImagem = "https://example.com/sabonete_coco.jpg", DepartamentoId = 3, CategoriaId = 9 },
+            new Produto { Id = 31, Nome = "Sabonete em Barra", Descricao = "Sabonete em barra 90g.", EAN = "7891234560311", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 9 },
+            new Produto { Id = 32, Nome = "Sabonete de Coco", Descricao = "Sabonete de coco 90g.", EAN = "7891234560322", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 9 },
             new Produto { Id = 33, Nome = "Desodorante Aerosol", Descricao = "Desodorante aerosol 150ml.", EAN = "7891234560333", UrlImagem = "https://example.com/desodorante_aerosol.jpg", DepartamentoId = 3, CategoriaId = 10 },
-            new Produto { Id = 34, Nome = "Pasta de Dente", Descricao = "Pasta de dente 90g.", EAN = "7891234560344", UrlImagem = "https://example.com/pasta_dente.jpg", DepartamentoId = 3, CategoriaId = 10 },
+            new Produto { Id = 34, Nome = "Pasta de Dente", Descricao = "Pasta de dente 90g.", EAN = "7891234560344", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 10 },
 
             // Produtos do departamento de Limpeza, categoria Amaciantes
-            new Produto { Id = 35, Nome = "Amaciante Floral", Descricao = "Amaciante floral 1L.", EAN = "7891234560355", UrlImagem = "https://example.com/amaciante_floral.jpg", DepartamentoId = 4, CategoriaId = 12 },
-            new Produto { Id = 36, Nome = "Amaciante Limão", Descricao = "Amaciante de limão 1L.", EAN = "7891234560366", UrlImagem = "https://example.com/amaciante_limao.jpg", DepartamentoId = 4, CategoriaId = 12 },
+            new Produto { Id = 35, Nome = "Amaciante Floral", Descricao = "Amaciante floral 1L.", EAN = "7891234560355", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 12 },
+            new Produto { Id = 36, Nome = "Amaciante Limão", Descricao = "Amaciante de limão 1L.", EAN = "7891234560366", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 12 },
 
             // Produtos do departamento de Higiene Pessoal, categoria Cabelos
-            new Produto { Id = 37, Nome = "Creme para Pentear", Descricao = "Creme para pentear 300ml.", EAN = "7891234560377", UrlImagem = "https://example.com/creme_pentear.jpg", DepartamentoId = 3, CategoriaId = 8 },
-            new Produto { Id = 38, Nome = "Óleo Capilar", Descricao = "Óleo capilar 100ml.", EAN = "7891234560388", UrlImagem = "https://example.com/oleo_capilar.jpg", DepartamentoId = 3, CategoriaId = 8 },
+            new Produto { Id = 37, Nome = "Creme para Pentear", Descricao = "Creme para pentear 300ml.", EAN = "7891234560377", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 8 },
+            new Produto { Id = 38, Nome = "Óleo Capilar", Descricao = "Óleo capilar 100ml.", EAN = "7891234560388", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 3, CategoriaId = 8 },
 
             // Produtos do departamento de Alimentos, categoria Laticínios
-            new Produto { Id = 39, Nome = "Manteiga", Descricao = "Manteiga 200g.", EAN = "7891234560399", UrlImagem = "https://example.com/manteiga.jpg", DepartamentoId = 1, CategoriaId = 5 },
-            new Produto { Id = 40, Nome = "Iogurte Natural", Descricao = "Iogurte natural 400g.", EAN = "7891234560400", UrlImagem = "https://example.com/iogurte_natural.jpg", DepartamentoId = 1, CategoriaId = 5 },
+            new Produto { Id = 39, Nome = "Manteiga", Descricao = "Manteiga 200g.", EAN = "7891234560399", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 5 },
+            new Produto { Id = 40, Nome = "Iogurte Natural", Descricao = "Iogurte natural 400g.", EAN = "7891234560400", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 5 },
 
             // Produtos do departamento de Bebidas, categoria Águas
-            new Produto { Id = 41, Nome = "Água com Gás", Descricao = "Água com gás 500ml.", EAN = "7891234560411", UrlImagem = "https://example.com/agua_com_gas.jpg", DepartamentoId = 2, CategoriaId = 7 },
-            new Produto { Id = 42, Nome = "Água com Limão", Descricao = "Água com limão 500ml.", EAN = "7891234560422", UrlImagem = "https://example.com/agua_com_limao.jpg", DepartamentoId = 2, CategoriaId = 7 },
+            new Produto { Id = 41, Nome = "Água com Gás", Descricao = "Água com gás 500ml.", EAN = "7891234560411", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 7 },
+            new Produto { Id = 42, Nome = "Água com Limão", Descricao = "Água com limão 500ml.", EAN = "7891234560422", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 7 },
 
             // Produtos do departamento de Limpeza, categoria Limpeza Pesada
-            new Produto { Id = 43, Nome = "Desinfetante Sanitário", Descricao = "Desinfetante sanitário 500ml.", EAN = "7891234560433", UrlImagem = "https://example.com/desinfetante_sanitario.jpg", DepartamentoId = 4, CategoriaId = 12 },
-            new Produto { Id = 44, Nome = "Desengordurante", Descricao = "Desengordurante 500ml.", EAN = "7891234560444", UrlImagem = "https://example.com/desengordurante.jpg", DepartamentoId = 4, CategoriaId = 13 },
+            new Produto { Id = 43, Nome = "Desinfetante Sanitário", Descricao = "Desinfetante sanitário 500ml.", EAN = "7891234560433", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 12 },
+            new Produto { Id = 44, Nome = "Desengordurante", Descricao = "Desengordurante 500ml.", EAN = "7891234560444", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 4, CategoriaId = 13 },
 
             // Produtos adicionais
-            new Produto { Id = 45, Nome = "Margarina", Descricao = "Margarina 500g.", EAN = "7891234560455", UrlImagem = "https://example.com/margarina.jpg", DepartamentoId = 1, CategoriaId = 5 },
-            new Produto { Id = 46, Nome = "Chocolate em Pó", Descricao = "Chocolate em pó 400g.", EAN = "7891234560466", UrlImagem = "https://example.com/chocolate_po.jpg", DepartamentoId = 1, CategoriaId = 4 },
-            new Produto { Id = 47, Nome = "Bolacha Cream Cracker", Descricao = "Bolacha cream cracker 200g.", EAN = "7891234560477", UrlImagem = "https://example.com/bolacha_cream_cracker.jpg", DepartamentoId = 1, CategoriaId = 4 },
-            new Produto { Id = 48, Nome = "Pão de Forma", Descricao = "Pão de forma 500g.", EAN = "7891234560488", UrlImagem = "https://example.com/pao_de_forma.jpg", DepartamentoId = 1, CategoriaId = 3 },
-            new Produto { Id = 49, Nome = "Queijo Mussarela", Descricao = "Queijo mussarela fatiado 300g.", EAN = "7891234560499", UrlImagem = "https://example.com/queijo_mussarela.jpg", DepartamentoId = 5, CategoriaId = 5 },
-            new Produto { Id = 50, Nome = "Suco de Caju", Descricao = "Suco de caju 1L.", EAN = "7891234560500", UrlImagem = "https://example.com/suco_caju.jpg", DepartamentoId = 2, CategoriaId = 6 }
+            new Produto { Id = 45, Nome = "Margarina", Descricao = "Margarina 500g.", EAN = "7891234560455", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 5 },
+            new Produto { Id = 46, Nome = "Chocolate em Pó", Descricao = "Chocolate em pó 400g.", EAN = "7891234560466", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 4 },
+            new Produto { Id = 47, Nome = "Bolacha Cream Cracker", Descricao = "Bolacha cream cracker 200g.", EAN = "7891234560477", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 4 },
+            new Produto { Id = 48, Nome = "Pão de Forma", Descricao = "Pão de forma 500g.", EAN = "7891234560488", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 1, CategoriaId = 3 },
+            new Produto { Id = 49, Nome = "Queijo Mussarela", Descricao = "Queijo mussarela fatiado 300g.", EAN = "7891234560499", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 5, CategoriaId = 5 },
+            new Produto { Id = 50, Nome = "Suco de Caju", Descricao = "Suco de caju 1L.", EAN = "7891234560500", UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif", DepartamentoId = 2, CategoriaId = 6 }
         );
     }
 
@@ -226,15 +226,15 @@ public static class DadosPadroes
     {
         modelBuilder.Entity<Mercado>().HasData(
             new Mercado { Id = 1, Nome = "Pão de Açúcar", Endereco = "Rua das Palmeiras, 123, São Paulo, SP", UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcTl6OrE1EUtntSDrM_xGQ_i79qJdq5dBq9g&s", Destaque = true },
-            new Mercado { Id = 2, Nome = "Carrefour", Endereco = "Avenida Paulista, 500, São Paulo, SP", UrlImagem = "https://example.com/carrefour.jpg", Destaque = true },
-            new Mercado { Id = 3, Nome = "Extra", Endereco = "Rua 25 de Março, 1010, São Paulo, SP", UrlImagem = "https://example.com/extra.jpg", Destaque = true },
+            new Mercado { Id = 2, Nome = "Carrefour", Endereco = "Avenida Paulista, 500, São Paulo, SP", UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF7y3UbeRtSKAlHHy5W0p-hejaCi9KihHCkA&s", Destaque = true },
+            new Mercado { Id = 3, Nome = "Extra", Endereco = "Rua 25 de Março, 1010, São Paulo, SP", UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOf-t-njVAeC0v0M2Xy5e4Kn9QND636ytb9A&s", Destaque = true },
             new Mercado { Id = 5, Nome = "Atacadão Spani", Endereco = "Avenida do Estado, 9876, São Paulo, SP", UrlImagem = "https://example.com/atacadao.jpg", Destaque = false },
-            new Mercado { Id = 7, Nome = "Hipermercado Walmart", Endereco = "Rua do Sabor, 3456, São Paulo, SP", UrlImagem = "https://example.com/walmart.jpg", Destaque = true },
+            new Mercado { Id = 7, Nome = "Hipermercado Walmart", Endereco = "Rua do Sabor, 3456, São Paulo, SP", UrlImagem = "https://pbs.twimg.com/profile_images/1539351712514842629/Mvtw8vAt_400x400.png", Destaque = true },
             new Mercado { Id = 8, Nome = "Roldão", Endereco = "Avenida dos Três, 1234, São Paulo, SP", UrlImagem = "https://example.com/roldao.jpg", Destaque = false },
             new Mercado { Id = 9, Nome = "Tesco", Endereco = "Rua do Mercado, 4321, São Paulo, SP", UrlImagem = "https://example.com/tesco.jpg", Destaque = false },
             new Mercado { Id = 10, Nome = "Sonae", Endereco = "Avenida Principal, 6789, São Paulo, SP", UrlImagem = "https://example.com/sonae.jpg", Destaque = false },
             new Mercado { Id = 4, Nome = "Covabra", Endereco = "Avenida São João, 101, Campinas, SP", UrlImagem = "https://yt3.googleusercontent.com/WxxBjaJlFVe0-OiEbxrcQLCw1hiWKN4IosKxooYkKSKN1dhPvvGDk44MwoYJBo87cJpc7UDa3w=s900-c-k-c0x00ffffff-no-rj", Destaque = true },
-            new Mercado { Id = 6, Nome = "Savenago", Endereco = "Rua Rio Branco, 777, São João da Boa Vista, SP", UrlImagem = "https://example.com/savenago.jpg", Destaque = true }
+            new Mercado { Id = 6, Nome = "Savenago", Endereco = "Rua Rio Branco, 777, São João da Boa Vista, SP", UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCD1GIZZBPrq5vkGYaZwhD7E-iam-NeANTzw&s", Destaque = true }
         );
     }
 }    

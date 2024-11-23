@@ -5,18 +5,18 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BetterPrice.Pages.ProdutosModel
 @{
-    <!-- Conteúdo Principal -->
     <div class="container mt-4">
         <div class="row">
             <!-- Filtros Laterais -->
             <aside class="col-md-3">
                 <h5>Filtros</h5>
                 <form>
-                    <div class="mb-3">
-                        <label class="form-label">Categorias</label>
+                    <!-- Categorias Section -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Categorias</label>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="Alimentos" id="alimentos">
-                            <label class="form-check-label" for="alimento">Alimentos</label>
+                            <label class="form-check-label" for="alimentos">Alimentos</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="Bebidas" id="bebidas">
@@ -27,8 +27,10 @@
                             <label class="form-check-label" for="higiene">Higiene</label>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Preço</label>
+
+                    <!-- Preço Section -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Preço</label>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="low" id="baixo">
                             <label class="form-check-label" for="baixo">Até R$ 50</label>
@@ -42,8 +44,23 @@
                             <label class="form-check-label" for="alto">Acima de R$ 200</label>
                         </div>
                     </div>
+
+                    <!-- Add more sections as needed -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Departamentos</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Eletrônicos" id="eletronicos">
+                            <label class="form-check-label" for="eletronicos">Eletrônicos</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Vestuário" id="vestuario">
+                            <label class="form-check-label" for="vestuario">Vestuário</label>
+                        </div>
+                    </div>
                 </form>
             </aside>
+
+
             
             <section class="col-md-9">
                 <!-- Caixa de pesquisa com bordas arredondadas -->

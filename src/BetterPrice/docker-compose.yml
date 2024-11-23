@@ -11,7 +11,7 @@ services:
       - "443:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=admin;Password=123;Database=bp
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Username=admin;Password=123;Database=bp
     volumes:
       - ./app-data:/app/images 
     command: ["sh", "-c", "dotnet ef database update && dotnet BeeterPrice.dll"]  # Run migrations before starting the app- 

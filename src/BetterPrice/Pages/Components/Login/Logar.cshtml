@@ -1,21 +1,21 @@
 ﻿<div class="modal-header">
-    <h5 class="modal-title">LoginViewComponent/Cadastro</h5>
+    <h5 class="modal-title">Fazer Login</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 
-<div class="modal-body">
-    <div class="container d-flex justify-content-center align-items-center">
-        <form method="post" asp-page="/Login/ProcessarLogin">
+<div class="modal-body login body">
+    <div class="container justify-content-center align-items-center">
+        <form method="post" class="login" asp-page="/Login/ProcessarLogin">
             <!-- Nome -->
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Digite seu email" required>
+                <label for="email" class="login form-label">Email</label>
+                <input type="text" class="login form-control" id="email" name="email" placeholder="Digite seu email" required>
             </div>
 
             <!-- Senha -->
             <div class="mb-3">
-                <label for="senha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                <label for="senha" class="login form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
             
             <!-- Exibir mensagens de erro -->
@@ -31,13 +31,13 @@
 
             <!-- Botão de Envio -->
             <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="btn login btn-primary">Entrar</button>
             </div>
             
             <!-- Google button -->
             <div class="d-grid gap-2 mt-3">
                 <a href="/signin-google" class="btn btn-light border d-flex align-items-center justify-content-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" 
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
                          alt="Google logo" width="20" height="20" class="me-2">
                     Registrar com Google
                 </a>
