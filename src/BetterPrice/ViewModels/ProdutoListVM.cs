@@ -7,4 +7,5 @@ public class ProdutoListVM
 {
     public List<ItemPreco> Itens { get; set; }
     public TipoListaProduto TipoLista { get; set; }
+    
 }

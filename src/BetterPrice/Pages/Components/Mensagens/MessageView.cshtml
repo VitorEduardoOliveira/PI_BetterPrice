@@ -1,7 +1,7 @@
 ﻿@using BetterPrice.ViewModels
-@model BetterPrice.ViewModels.Mensagem
+@model BetterPrice.ViewModels.Mensagem?
 
-@if (Model.TipoMensagem == TipoMensagem.Sucesso)
+@if (Model?.TipoMensagem == TipoMensagem.Sucesso)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         @Model.Descricao
@@ -9,7 +9,7 @@
     </div>
 }
 
-@if (Model.TipoMensagem == TipoMensagem.Erro)
+@if (Model?.TipoMensagem == TipoMensagem.Erro)
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         @Model.Descricao

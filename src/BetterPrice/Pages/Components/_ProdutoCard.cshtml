@@ -1,34 +1,35 @@
-﻿@using BetterPrice.ViewModels
-@model ProdutoViewModel
+﻿@using BetterPrice.Services
+@using BetterPrice.ViewModels
+@inject AuthenticationHelper AuthenticationHelper
+@model dynamic
 
-<div class="card" style="width: 18rem; margin: 15px;">
-    <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Descricao Image">
-    <div class="card-body text-center">
-        <div class="row">
-            <div class="col-8"><h5 class="card-title">R$ @Model.Valor.ToString("F2")</h5></div>
-            <div class="col-4"><span class="badge bg-secondary">@Model.Categoria</span></div>
-        </div>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        
-        <p class="card-text">@Model.Descricao</p>
-
-        <!-- Avaliacao Section -->
-        <div class="rating mt-3">
-            @for (int i = 1; i <= 5; i++)
+<div class="col">
+    <div class="card h-100">
+        <img src="@Model.Item.Produto.UrlImagem" class="card-img-top" alt="@Model.Item.Produto.Nome">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Item.Produto.Nome</h5>
+            <p class="card-text">@Model.Item.Produto.Descricao</p>
+            <p class="card-price">@($"R$ {Model.Item.Valor:N2}")</p>
+                        
+            @if (Model.EhCarrinho)
             {
-                if (Model.Avaliacao >= i)
+                <form method="post" asp-page="Carrinho" asp-page-handler="RemoverCarrinho" asp-route-itemId="@Model.Item.Id">
+                    <button class="btn btn-primary" type="submit">Remover do carrinho</button>
+                </form>
+            }
+            else
+            {
+                if (AuthenticationHelper.UsuarioEstaLogado())
                 {
-                    <i class="fas fa-star text-warning"></i>
-                }
-                else if (Model.Avaliacao >= i - 0.5)
-                {
-                    <i class="fas fa-star-half-alt text-warning"></i>
+                    <form method="post" asp-page="Carrinho" asp-page-handler="AddCarrinho" asp-route-itemId="@Model.Item.Id">
+                        <button class="btn btn-primary" type="submit">Adicionar ao carrinho</button>
+                    </form>
                 }
                 else
                 {
-                    <i class="far fa-star text-muted"></i>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Adicionar ao carrinho</button>
                 }
             }
         </div>
     </div>
-</div>
+</div>   

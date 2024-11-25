@@ -11,7 +11,7 @@ services:
       - "443:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Username=postgres;Password=123;Database=betterpricedb
+      - ConnectionStrings__DefaultConnection=Host=localhost;Port=5432;Username=postgres;Password=123;Database=betterpricedb
     volumes:
       - ./app-data:/app/images 
     command: ["sh", "-c", "./wait-for-it.sh db:5432 -- dotnet ef database update && dotnet BetterPrice.dll"]

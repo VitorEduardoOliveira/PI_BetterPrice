@@ -8,74 +8,90 @@
     <div class="container mt-4">
         <div class="row">
             <!-- Filtros Laterais -->
-            <aside class="col-md-3">
-                <h5>Filtros</h5>
-                <form>
-                    <!-- Categorias Section -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">Categorias</label>
+            <aside class="col-sm-3 col-md-2 col-lg-2">
+                <h4>Filtros</h4>
+                <form method="post" asp-page-handler="Pesquisa">
+                    <!-- Ordenar Preço section -->
+                    <div class="mb-3">
+                        <h5>Ordenar Preços</h5>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Alimentos" id="alimentos">
-                            <label class="form-check-label" for="alimentos">Alimentos</label>
+                            <input class="form-check-input" type="radio" value="semOrdenar" id="semOrdenar" asp-for="PrecoVM.SemOrdenacao" checked>
+                            <label class="form-check-label" for="semOrdenar">Sem ordenação</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Bebidas" id="bebidas">
-                            <label class="form-check-label" for="bebidas">Bebidas</label>
+                            <input class="form-check-input" type="radio" value="menorMaior" id="menorMaior" asp-for="PrecoVM.OrdernarMenorMaior">
+                            <label class="form-check-label" for="menorMaior">Menor para maior</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Higiene" id="higiene">
-                            <label class="form-check-label" for="higiene">Higiene</label>
+                            <input class="form-check-input" type="radio" value="maiorMenor" id="maiorMenor" asp-for="PrecoVM.OrdenarMaiorMenor">
+                            <label class="form-check-label" for="maiorMenor">Maior para menor</label>
                         </div>
                     </div>
 
                     <!-- Preço Section -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">Preço</label>
+                    <div class="mb-3">
+                        <h5>Preço</h5>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="low" id="baixo">
-                            <label class="form-check-label" for="baixo">Até R$ 50</label>
+                            <input class="form-check-input" type="radio" value="todosPrecos" id="todosPrecos" asp-for="PrecoVM.TodosPrecos" checked>
+                            <label class="form-check-label" for="todosPrecos">Todos os preços</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="medium" id="medio">
-                            <label class="form-check-label" for="medio">R$ 51 - R$ 200</label>
+                            <input class="form-check-input" type="radio" value="preco1" id="preco1" asp-for="PrecoVM.Ate50" >
+                            <label class="form-check-label" for="preco1">Até R$ 50</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="high" id="alto">
-                            <label class="form-check-label" for="alto">Acima de R$ 200</label>
+                            <input class="form-check-input" type="radio" value="preco2" id="preco2" asp-for="PrecoVM.De51a200">
+                            <label class="form-check-label" for="preco2">R$ 51 - R$ 200</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="preco3" value="preco3" asp-for="PrecoVM.Acima200">
+                            <label class="form-check-label" for="preco3">Acima de R$ 200</label>
                         </div>
                     </div>
-
-                    <!-- Add more sections as needed -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">Departamentos</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Eletrônicos" id="eletronicos">
-                            <label class="form-check-label" for="eletronicos">Eletrônicos</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Vestuário" id="vestuario">
-                            <label class="form-check-label" for="vestuario">Vestuário</label>
-                        </div>
+                    <!-- Categorias Section -->
+                    <div class="mb-3">
+                        <h5>Categorias</h5>
+                        @foreach(var categoria in Model.Categorias)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="CategoriasSelecionadas" value="@categoria.Id" id="cat-@categoria.Id">
+                                <label class="form-check-label" for="cat-@categoria.Id">@categoria.Nome</label>
+                            </div>
+                        }
+                    </div>
+                    
+                    <!-- Departamentos Section -->
+                    <div>
+                        <h5>Departamentos</h5>
+                        @foreach(var departamento in Model.Departamentos)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="DepartamentosSelecionados" value="@departamento.Id" id="dep-@departamento.Id">
+                                <label class="form-check-label" for="dep-@departamento.Id">@departamento.Nome</label>
+                            </div>
+                        }
+                    </div>
+                    
+                    <!-- Botão filtro -->
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="submit" class="btn login btn-primary">Aplicar filtros</button>
                     </div>
                 </form>
             </aside>
 
-
-            
-            <section class="col-md-9">
-                <!-- Caixa de pesquisa com bordas arredondadas -->
-                <form role="search" class="d-flex justify-content-center align-items-center">
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <form method="post" role="search" asp-page-handler="Pesquisa" class="d-flex justify-content-center align-items-center">
                     <input asp-for="Filtro.Nome" class="form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
-                    <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
+                    <button class="btn btn-outline-primary rounded-pill" type="submit">Buscar</button>
                 </form>
                 <h5>Resultados</h5>
-                @Component.InvokeAsync("ProdutoList", new
+                @await Component.InvokeAsync("ProdutoList", new
                 {
                     tipoListaProduto = TipoListaProduto.Cards,
                     filtroProduto = Model.Filtro
                 })
-            </section>
-            
+            </div>
         </div>
     </div>
 }

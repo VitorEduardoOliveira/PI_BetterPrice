@@ -1,11 +1,21 @@
 ﻿@page
 @using BetterPrice.Pages.Components
 @using BetterPrice.ViewModels
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BetterPrice.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
+@if (TempData["ErroLogin"] is not null)
+{
+    @await Html.PartialAsync("Components/Mensagens/MessageView", model: new Mensagem()
+    {
+        Descricao = TempData["ErroLogin"].ToString(),
+        TipoMensagem = TipoMensagem.Erro
+    })
+}
 
 <!-- Conteúdo principal centralizado com caixa de pesquisa -->
 <div class="container main-content d-flex flex-column justify-content-center align-items-center text-center" style="height: 50vh;">
@@ -15,9 +25,9 @@
         <p>Explore nossas ofertas e encontre o melhor preço para você.</p>
 
         <!-- Caixa de pesquisa com bordas arredondadas -->
-        <form role="search" class="search-form d-flex justify-content-center align-items-center">
+        <form role="search" asp-page-handler="Pesquisa" class="search-form d-flex justify-content-center align-items-center">
             <input asp-for="Filtro.Nome" class="search-form form-control me-2 rounded-pill" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar">
-            <button class="btn btn-outline-primary rounded-pill" asp-page-handler="Pesquisa" type="submit">Buscar</button>
+            <button class="btn btn-outline-primary rounded-pill" type="submit">Buscar</button>
         </form>
         
        @await Component.InvokeAsync("MercadosCarousel")

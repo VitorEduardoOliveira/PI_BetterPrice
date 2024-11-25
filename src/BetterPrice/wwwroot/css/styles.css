@@ -100,6 +100,12 @@ footer {
    padding-bottom: 50px; /* Espaçamento extra para evitar sobreposição com o footer */
 }
 
+.card-img-top {
+    width: 100%; /* Makes the image responsive within the card */
+    height: 200px; /* Or any desired height */
+    object-fit: cover; /* Ensures the image is cropped to fill the space */
+}
+
 /* Ajuste individual para cada card */
 .card {
    width: 100%; /* Faz os cards ocuparem toda a largura da coluna */

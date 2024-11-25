@@ -35,7 +35,8 @@ namespace BetterPrice.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioId")
+                        .IsUnique();
 
                     b.ToTable("Carrinhos");
                 });
@@ -985,7 +986,7 @@ namespace BetterPrice.Migrations
                             Destaque = true,
                             Endereco = "Avenida Paulista, 500, São Paulo, SP",
                             Nome = "Carrefour",
-                            UrlImagem = "https://example.com/carrefour.jpg"
+                            UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF7y3UbeRtSKAlHHy5W0p-hejaCi9KihHCkA&s"
                         },
                         new
                         {
@@ -993,7 +994,7 @@ namespace BetterPrice.Migrations
                             Destaque = true,
                             Endereco = "Rua 25 de Março, 1010, São Paulo, SP",
                             Nome = "Extra",
-                            UrlImagem = "https://example.com/extra.jpg"
+                            UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOf-t-njVAeC0v0M2Xy5e4Kn9QND636ytb9A&s"
                         },
                         new
                         {
@@ -1009,7 +1010,7 @@ namespace BetterPrice.Migrations
                             Destaque = true,
                             Endereco = "Rua do Sabor, 3456, São Paulo, SP",
                             Nome = "Hipermercado Walmart",
-                            UrlImagem = "https://example.com/walmart.jpg"
+                            UrlImagem = "https://pbs.twimg.com/profile_images/1539351712514842629/Mvtw8vAt_400x400.png"
                         },
                         new
                         {
@@ -1049,7 +1050,7 @@ namespace BetterPrice.Migrations
                             Destaque = true,
                             Endereco = "Rua Rio Branco, 777, São João da Boa Vista, SP",
                             Nome = "Savenago",
-                            UrlImagem = "https://example.com/savenago.jpg"
+                            UrlImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCD1GIZZBPrq5vkGYaZwhD7E-iam-NeANTzw&s"
                         });
                 });
 
@@ -1100,7 +1101,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Arroz integral de 5kg.",
                             EAN = "7891234560011",
                             Nome = "Arroz Integral",
-                            UrlImagem = "https://example.com/arroz_integral.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1110,7 +1111,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Feijão preto de 1kg.",
                             EAN = "7891234560022",
                             Nome = "Feijão Preto",
-                            UrlImagem = "https://example.com/feijao_preto.jpg"
+                            UrlImagem = "https://propao.agilecdn.com.br/4493_1.jpg"
                         },
                         new
                         {
@@ -1120,7 +1121,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Macarrão instantâneo de 80g.",
                             EAN = "7891234560033",
                             Nome = "Macarrão Instantâneo",
-                            UrlImagem = "https://example.com/macarrao_instantaneo.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1130,7 +1131,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Óleo de soja 900ml.",
                             EAN = "7891234560044",
                             Nome = "Óleo de Soja",
-                            UrlImagem = "https://example.com/oleo_soja.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1140,7 +1141,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Chocolate ao leite 200g.",
                             EAN = "7891234560055",
                             Nome = "Chocolate ao Leite",
-                            UrlImagem = "https://example.com/chocolate_ao_leite.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1150,7 +1151,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Refrigerante de cola 2L.",
                             EAN = "7891234560066",
                             Nome = "Refrigerante de Cola",
-                            UrlImagem = "https://example.com/refrigerante_cola.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1160,7 +1161,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Refrigerante de laranja 2L.",
                             EAN = "7891234560077",
                             Nome = "Refrigerante de Laranja",
-                            UrlImagem = "https://example.com/refrigerante_laranja.jpg"
+                            UrlImagem = "https://coopsp.vtexassets.com/arquivos/ids/215362-800-auto?v=637919527220430000&width=800&height=auto&aspect=true"
                         },
                         new
                         {
@@ -1170,7 +1171,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Suco de uva integral 1L.",
                             EAN = "7891234560088",
                             Nome = "Suco de Uva",
-                            UrlImagem = "https://example.com/suco_uva.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1180,7 +1181,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Suco de laranja natural 1L.",
                             EAN = "7891234560099",
                             Nome = "Suco de Laranja",
-                            UrlImagem = "https://example.com/suco_laranja.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1190,7 +1191,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Água mineral 500ml.",
                             EAN = "7891234560100",
                             Nome = "Água Mineral",
-                            UrlImagem = "https://example.com/agua_mineral.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1200,7 +1201,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Shampoo anticaspa 200ml.",
                             EAN = "7891234560111",
                             Nome = "Shampoo Anticaspa",
-                            UrlImagem = "https://example.com/shampoo_anticaspa.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1210,7 +1211,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Shampoo hidratante 200ml.",
                             EAN = "7891234560122",
                             Nome = "Shampoo Hidratante",
-                            UrlImagem = "https://example.com/shampoo_hidratante.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1220,7 +1221,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Condicionador fortalecedor 200ml.",
                             EAN = "7891234560133",
                             Nome = "Condicionador Fortalecedor",
-                            UrlImagem = "https://example.com/condicionador_fortalecedor.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1230,7 +1231,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Sabonete líquido 250ml.",
                             EAN = "7891234560144",
                             Nome = "Sabonete Líquido",
-                            UrlImagem = "https://example.com/sabonete_liquido.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1240,7 +1241,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Escova dental macia.",
                             EAN = "7891234560155",
                             Nome = "Escova Dental",
-                            UrlImagem = "https://example.com/escova_dental.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1250,7 +1251,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Detergente neutro 500ml.",
                             EAN = "7891234560166",
                             Nome = "Detergente Neutro",
-                            UrlImagem = "https://example.com/detergente_neutro.jpg"
+                            UrlImagem = "https://tb0932.vtexassets.com/arquivos/ids/162732-800-auto?v=637705337202370000&width=800&height=auto&aspect=true"
                         },
                         new
                         {
@@ -1260,7 +1261,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Detergente de coco 500ml.",
                             EAN = "7891234560177",
                             Nome = "Detergente de Coco",
-                            UrlImagem = "https://example.com/detergente_coco.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1270,7 +1271,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Desinfetante floral 500ml.",
                             EAN = "7891234560188",
                             Nome = "Desinfetante Floral",
-                            UrlImagem = "https://example.com/desinfetante_floral.jpg"
+                            UrlImagem = "https://images.tcdn.com.br/img/img_prod/1213476/desinfetante_5_litros_guimaraes_floral_2655_1_ef004baff3bc763e9629435d6a8b1c0c.jpg"
                         },
                         new
                         {
@@ -1280,7 +1281,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Desinfetante de limão 500ml.",
                             EAN = "7891234560199",
                             Nome = "Desinfetante Limão",
-                            UrlImagem = "https://example.com/desinfetante_limao.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1290,7 +1291,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Esponja de aço 3 unidades.",
                             EAN = "7891234560200",
                             Nome = "Esponja de Aço",
-                            UrlImagem = "https://example.com/esponja_aco.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1300,7 +1301,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Arroz parboilizado 5kg.",
                             EAN = "7891234560211",
                             Nome = "Arroz Parboilizado",
-                            UrlImagem = "https://example.com/arroz_parboilizado.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1310,7 +1311,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Macarrão espaguete 500g.",
                             EAN = "7891234560222",
                             Nome = "Macarrão Espaguete",
-                            UrlImagem = "https://example.com/macarrao_espaguete.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1320,7 +1321,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Molho de tomate 340g.",
                             EAN = "7891234560233",
                             Nome = "Molho de Tomate",
-                            UrlImagem = "https://example.com/molho_tomate.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1330,7 +1331,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Biscoito recheado 150g.",
                             EAN = "7891234560244",
                             Nome = "Biscoito Recheado",
-                            UrlImagem = "https://example.com/biscoito_recheado.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1340,7 +1341,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Suco de abacaxi 1L.",
                             EAN = "7891234560255",
                             Nome = "Suco de Abacaxi",
-                            UrlImagem = "https://example.com/suco_abacaxi.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1350,7 +1351,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Biscoito salgado 200g.",
                             EAN = "7891234560266",
                             Nome = "Biscoito Salgado",
-                            UrlImagem = "https://example.com/biscoito_salgado.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1360,7 +1361,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Queijo prato fatiado 300g.",
                             EAN = "7891234560277",
                             Nome = "Queijo Prato",
-                            UrlImagem = "https://example.com/queijo_prato.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1370,7 +1371,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Presunto fatiado 300g.",
                             EAN = "7891234560288",
                             Nome = "Presunto",
-                            UrlImagem = "https://example.com/presunto.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1380,7 +1381,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Mortadela fatiada 300g.",
                             EAN = "7891234560299",
                             Nome = "Mortadela",
-                            UrlImagem = "https://example.com/mortadela.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1390,7 +1391,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Leite condensado 395g.",
                             EAN = "7891234560300",
                             Nome = "Leite Condensado",
-                            UrlImagem = "https://example.com/leite_condensado.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1400,7 +1401,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Sabonete em barra 90g.",
                             EAN = "7891234560311",
                             Nome = "Sabonete em Barra",
-                            UrlImagem = "https://example.com/sabonete_barra.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1410,7 +1411,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Sabonete de coco 90g.",
                             EAN = "7891234560322",
                             Nome = "Sabonete de Coco",
-                            UrlImagem = "https://example.com/sabonete_coco.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1430,7 +1431,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Pasta de dente 90g.",
                             EAN = "7891234560344",
                             Nome = "Pasta de Dente",
-                            UrlImagem = "https://example.com/pasta_dente.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1440,7 +1441,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Amaciante floral 1L.",
                             EAN = "7891234560355",
                             Nome = "Amaciante Floral",
-                            UrlImagem = "https://example.com/amaciante_floral.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1450,7 +1451,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Amaciante de limão 1L.",
                             EAN = "7891234560366",
                             Nome = "Amaciante Limão",
-                            UrlImagem = "https://example.com/amaciante_limao.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1460,7 +1461,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Creme para pentear 300ml.",
                             EAN = "7891234560377",
                             Nome = "Creme para Pentear",
-                            UrlImagem = "https://example.com/creme_pentear.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1470,7 +1471,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Óleo capilar 100ml.",
                             EAN = "7891234560388",
                             Nome = "Óleo Capilar",
-                            UrlImagem = "https://example.com/oleo_capilar.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1480,7 +1481,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Manteiga 200g.",
                             EAN = "7891234560399",
                             Nome = "Manteiga",
-                            UrlImagem = "https://example.com/manteiga.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1490,7 +1491,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Iogurte natural 400g.",
                             EAN = "7891234560400",
                             Nome = "Iogurte Natural",
-                            UrlImagem = "https://example.com/iogurte_natural.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1500,7 +1501,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Água com gás 500ml.",
                             EAN = "7891234560411",
                             Nome = "Água com Gás",
-                            UrlImagem = "https://example.com/agua_com_gas.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1510,7 +1511,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Água com limão 500ml.",
                             EAN = "7891234560422",
                             Nome = "Água com Limão",
-                            UrlImagem = "https://example.com/agua_com_limao.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1520,7 +1521,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Desinfetante sanitário 500ml.",
                             EAN = "7891234560433",
                             Nome = "Desinfetante Sanitário",
-                            UrlImagem = "https://example.com/desinfetante_sanitario.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1530,7 +1531,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Desengordurante 500ml.",
                             EAN = "7891234560444",
                             Nome = "Desengordurante",
-                            UrlImagem = "https://example.com/desengordurante.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1540,7 +1541,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Margarina 500g.",
                             EAN = "7891234560455",
                             Nome = "Margarina",
-                            UrlImagem = "https://example.com/margarina.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1550,7 +1551,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Chocolate em pó 400g.",
                             EAN = "7891234560466",
                             Nome = "Chocolate em Pó",
-                            UrlImagem = "https://example.com/chocolate_po.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1560,7 +1561,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Bolacha cream cracker 200g.",
                             EAN = "7891234560477",
                             Nome = "Bolacha Cream Cracker",
-                            UrlImagem = "https://example.com/bolacha_cream_cracker.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1570,7 +1571,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Pão de forma 500g.",
                             EAN = "7891234560488",
                             Nome = "Pão de Forma",
-                            UrlImagem = "https://example.com/pao_de_forma.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1580,7 +1581,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Queijo mussarela fatiado 300g.",
                             EAN = "7891234560499",
                             Nome = "Queijo Mussarela",
-                            UrlImagem = "https://example.com/queijo_mussarela.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         },
                         new
                         {
@@ -1590,7 +1591,7 @@ namespace BetterPrice.Migrations
                             Descricao = "Suco de caju 1L.",
                             EAN = "7891234560500",
                             Nome = "Suco de Caju",
-                            UrlImagem = "https://example.com/suco_caju.jpg"
+                            UrlImagem = "https://www.aquarelapapeis.com.br/arquivos/produto_sem_foto.gif"
                         });
                 });
 
@@ -1605,6 +1606,9 @@ namespace BetterPrice.Migrations
                     b.Property<string>("CPF")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("CarrinhoId")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("timestamp with time zone");
@@ -1631,8 +1635,8 @@ namespace BetterPrice.Migrations
             modelBuilder.Entity("BetterPrice.Entities.Carrinho", b =>
                 {
                     b.HasOne("BetterPrice.Entities.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .WithOne("Carrinho")
+                        .HasForeignKey("BetterPrice.Entities.Carrinho", "UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1684,6 +1688,12 @@ namespace BetterPrice.Migrations
             modelBuilder.Entity("BetterPrice.Entities.Carrinho", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("BetterPrice.Entities.Usuario", b =>
+                {
+                    b.Navigation("Carrinho")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -20,18 +20,68 @@ public class CarrinhoModel : PageModel
     }
     public async Task OnGetAsync()
     {
-        var userId = Request.Cookies["UserID"];
+        var carrinhoId = HttpContext.Session.GetString("CarrinhoId");
 
-        if (userId == null)
+        if (carrinhoId == null)
         {
             RedirectToPage("Index");
         }
 
-        var items = await _carrinhoRepository.CarregarCarrinho(int.Parse(userId));
+        var items = await _carrinhoRepository.CarregarCarrinho(int.Parse(carrinhoId));
         ProdutosPorMercados = items.GroupBy(m => m.Mercado, m => m, (m, items) => new ItemCarrinhoVM
         {
             Mercado = m,
             Items = items
         });
+    }
+
+    public async Task<IActionResult> OnPostAddCarrinho(int itemId)
+    {
+        var carrinhoId = HttpContext.Session.GetString("CarrinhoId");
+        var userId = HttpContext.Session.GetString("UserId");
+
+        try
+        {
+            await _carrinhoRepository.AdicionarNoCarrinho(int.Parse(carrinhoId!), itemId, int.Parse(userId));
+
+            return Partial("Components/Mensagens/MessageView", new Mensagem
+            {
+                Descricao = "Item adicionado no carrinho!",
+                TipoMensagem = TipoMensagem.Sucesso
+            });
+        }
+        catch
+        {
+            return Partial("Components/Mensagens/MessageView", new Mensagem
+            {
+                Descricao = "Falha ao adicionar item no carrinho!",
+                TipoMensagem = TipoMensagem.Erro
+            });
+        }
+    }
+
+    public async Task<IActionResult> OnPostRemoverCarrinho(int itemId)
+    {
+        var carrinhoId = HttpContext.Session.GetString("CarrinhoId");
+        var userId = HttpContext.Session.GetString("UserId");
+
+        try
+        {
+            await _carrinhoRepository.RemoverDoCarrinho(int.Parse(carrinhoId!), itemId, int.Parse(userId));
+
+            return Partial("Components/Mensagens/MessageView", new Mensagem
+            {
+                Descricao = "Item removido do carrinho!",
+                TipoMensagem = TipoMensagem.Sucesso
+            });
+        }
+        catch
+        {
+            return Partial("Components/Mensagens/MessageView", new Mensagem
+            {
+                Descricao = "Falha ao remover item do carrinho!",
+                TipoMensagem = TipoMensagem.Erro
+            });
+        }
     }
 }

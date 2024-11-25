@@ -16,12 +16,12 @@ namespace BetterPrice.Pages
             _logger = logger;
         }
 
-        public void OnPostPesquisa()
+        public IActionResult OnPostPesquisa()
         {
             if (string.IsNullOrEmpty(Filtro.Nome))
-                return;
+                return RedirectToPage("/Index");
 
-            RedirectToPage("Produtos");
+            return RedirectToPage("Produtos", Filtro);
         }
 
         public IActionResult OnPostLogout()

@@ -26,197 +26,67 @@
         </div>
     </nav>
 
+    
     <div class="container mt-4">
         <div class="row">
             <!-- Filtros Laterais -->
-            <aside class="col-md-3">
-                <h5>Filtros</h5>
-                <form>
-                    <!-- Categorias Section -->
-                    <div class="row">
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">Categorias</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Alimentos" id="alimentos">
-                            <label class="form-check-label" for="alimentos">Alimentos</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Bebidas" id="bebidas">
-                            <label class="form-check-label" for="bebidas">Bebidas</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Higiene" id="higiene">
-                            <label class="form-check-label" for="higiene">Higiene</label>
-                        </div>
+            <aside class="col-sm-3 col-md-2 col-lg-2">
+                <h4>Filtros</h4>
+                <!-- Categories Section -->
+                <div class="mb-3">
+                    <h5>Categorias</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="alimentos">
+                        <label class="form-check-label" for="alimentos">Alimentos</label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="bebidas">
+                        <label class="form-check-label" for="bebidas">Bebidas</label>
                     </div>
-    
-                    <div class="row">
-                    <!-- Preço Section -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">Preço</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="low" id="baixo">
-                            <label class="form-check-label" for="baixo">Até R$ 50</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="medium" id="medio">
-                            <label class="form-check-label" for="medio">R$ 51 - R$ 200</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="high" id="alto">
-                            <label class="form-check-label" for="alto">Acima de R$ 200</label>
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="higiene">
+                        <label class="form-check-label" for="higiene">Higiene</label>
                     </div>
                 </div>
-    
-                    <!-- Add more sections as needed -->
-                    <div class="row">
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">Departamentos</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Eletrônicos" id="eletronicos">
-                            <label class="form-check-label" for="eletronicos">Eletrônicos</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Vestuário" id="vestuario">
-                            <label class="form-check-label" for="vestuario">Vestuário</label>
-                        </div>
+                <!-- Price Section -->
+                <div class="mb-3">
+                    <h5>Preço</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="preco1">
+                        <label class="form-check-label" for="preco1">Até R$ 50</label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="preco2">
+                        <label class="form-check-label" for="preco2">R$ 51 - R$ 200</label>
                     </div>
-                </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="preco3">
+                        <label class="form-check-label" for="preco3">Acima de R$ 200</label>
+                    </div>
+                </div>
+                <!-- Departments Section -->
+                <div>
+                    <h5>Departamentos</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="eletronicos">
+                        <label class="form-check-label" for="eletronicos">Eletrônicos</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="vestuario">
+                        <label class="form-check-label" for="vestuario">Vestuário</label>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 mt-3">
+                    <button type="submit" class="btn login btn-primary">Aplicar filtros</button>
+                </div>
             </aside>
-    
-    
-
-            <!-- Resultados de Pesquisa -->
-            <section class="col-md-9">
-                <h5>Resultados</h5>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <!-- Card 1 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto1.jpg" class="card-img-top" alt="Produto 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 1</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 9,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto2.jpg" class="card-img-top" alt="Produto 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 2</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 19,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto3.jpg" class="card-img-top" alt="Produto 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 3</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 29,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto4.jpg" class="card-img-top" alt="Produto 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 4</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 39,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 5 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto5.jpg" class="card-img-top" alt="Produto 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 5</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 49,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 6 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto6.jpg" class="card-img-top" alt="Produto 6">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 6</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 59,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 7 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto7.jpg" class="card-img-top" alt="Produto 7">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 7</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 69,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 8 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto8.jpg" class="card-img-top" alt="Produto 8">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 8</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 79,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 9 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto9.jpg" class="card-img-top" alt="Produto 9">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 9</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 89,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 10 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="img/produto10.jpg" class="card-img-top" alt="Produto 10">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto 10</h5>
-                                <p class="card-text">Descrição breve do produto.</p>
-                                <p class="card-price">R$ 99,99</p>
-                                <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <p>Main content goes here...</p>
+            </div>
         </div>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

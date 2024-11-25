@@ -8,7 +8,6 @@ public static class BetterPriceServices
     public static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
         return services
-            .AddTransient<CarrinhoService>()
             .AddTransient<AuthenticationHelper>();
 
     }

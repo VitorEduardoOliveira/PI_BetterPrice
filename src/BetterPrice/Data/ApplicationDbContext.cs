@@ -27,6 +27,11 @@ namespace BetterPrice.Data
             {
                 usuario.HasKey(i => i.Id);
                 usuario.Property(i => i.Id).ValueGeneratedOnAdd();
+
+                // One-to-One relationship with Carrinho (CarrinhoId will be set in Carrinho entity)
+                usuario.HasOne(u => u.Carrinho)
+                    .WithOne(c => c.Usuario)
+                    .HasForeignKey<Carrinho>(c => c.UsuarioId);
             });
 
             // Mercado
@@ -80,7 +85,10 @@ namespace BetterPrice.Data
             {
                 carrinho.HasKey(c => c.Id);
 
-                carrinho.HasOne(c => c.Usuario);
+                carrinho.HasOne(c => c.Usuario)
+                    .WithOne(u => u.Carrinho)
+                    .HasForeignKey<Carrinho>(c => c.UsuarioId);
+
                 carrinho.HasMany(c => c.Items);
             });
         }

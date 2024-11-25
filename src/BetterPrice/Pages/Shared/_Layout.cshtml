@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using BetterPrice.ViewModels
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -35,8 +37,10 @@
     </nav>
 
     @RenderBody()
+    
+    @await Html.PartialAsync("Components/Mensagens/MessageView", model:null)
 
-<!-- Rodapé -->
+    <!-- Rodapé -->
 <footer>
     <p> 2024 BetterPrice. Todos os direitos reservados.</p>
 </footer>

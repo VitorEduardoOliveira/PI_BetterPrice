@@ -9,6 +9,9 @@ public class Usuario
     public required string Email { get; set; }
     public string? Senha { get; set; }
     public required TipoAutenticacao TipoAutenticacao { get; set; }
+
+    public int CarrinhoId { get; set; }
+    public Carrinho Carrinho { get; set; }
 }
 
 public enum TipoAutenticacao

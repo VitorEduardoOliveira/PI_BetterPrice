@@ -23,19 +23,20 @@ namespace BetterPrice.Pages.Login
 
             if (usuario == null)
             {
-                ModelState.AddModelError(string.Empty, "Nenhum usuário cadastro com esse email");
-                return Page();
+                TempData["ErroLogin"] = "Nenhum usuário cadastro com esse email";
+                return RedirectToPage("/Index");
             }
 
             // Verificando senha
             if (usuario.TipoAutenticacao == TipoAutenticacao.App && BCrypt.Net.BCrypt.Verify(senha, usuario.Senha))
             {
                 HttpContext.Session.SetString("UserId", usuario.Id.ToString());
+                HttpContext.Session.SetString("CarrinhoId", usuario.CarrinhoId.ToString());
                 return RedirectToPage("/Index");
             }
 
-            ModelState.AddModelError(string.Empty, "Senha incorreta");
-            return Page();
+            TempData["ErroLogin"] = "Senha incorreta";
+            return RedirectToPage("/Index");
         }
     }
 }

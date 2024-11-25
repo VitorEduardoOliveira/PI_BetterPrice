@@ -22,7 +22,7 @@ namespace BetterPrice.Pages.Login
             // checa se o email existe
             if (await _userRepository.ExisteUsuario(email))
             {
-                ModelState.AddModelError(string.Empty, "Email já cadastrado.");
+                TempData["ErroLogin"] = "Email já cadastrado.";
                 return Page();
             }
 

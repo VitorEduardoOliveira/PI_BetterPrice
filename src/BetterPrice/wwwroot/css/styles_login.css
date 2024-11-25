@@ -8,9 +8,9 @@
     border-radius: 8px;
 }
 
-    .login .card h2 {
-        color: #007bff;
-    }
+.login .card h2 {
+    color: #007bff;
+}
 
 .login .form-label {
     font-weight: bold;

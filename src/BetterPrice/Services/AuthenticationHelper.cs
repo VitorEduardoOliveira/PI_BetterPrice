@@ -9,7 +9,7 @@
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public bool IsUserSignedIn()
+        public bool UsuarioEstaLogado()
         {
             var userId = _httpContextAccessor.HttpContext?.Session.GetString("UserId");
             return !string.IsNullOrEmpty(userId);

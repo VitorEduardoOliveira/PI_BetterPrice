@@ -37,6 +37,15 @@ public class ItemRepository
         if (filtro.ApenasDestaques)
             query = query.Where(i => i.Destaque);
 
+        if (filtro.Ate50)
+            query = query.Where(i => i.Valor <= 50);
+
+        if (filtro.De50a200)
+            query = query.Where(i => i.Valor > 50 && i.Valor < 200);
+
+        if (filtro.Acima200)
+            query = query.Where(i => i.Valor >= 200);
+
         return query.ToListAsync();
     }
 

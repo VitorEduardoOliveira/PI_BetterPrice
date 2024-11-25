@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding
+<div class="modal-header">
     <h5 class="modal-title">Fazer Login</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
@@ -19,7 +20,7 @@
             </div>
             
             <!-- Exibir mensagens de erro -->
-            @if (!ViewData.ModelState.IsValid)
+            @if (ViewData.ModelState["login"]?.ValidationState == ModelValidationState.Invalid)
             {
                 <div class="alert alert-danger">
                     @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
@@ -36,10 +37,10 @@
             
             <!-- Google button -->
             <div class="d-grid gap-2 mt-3">
-                <a href="/signin-google" class="btn btn-light border d-flex align-items-center justify-content-center">
+                <a asp-page="Login/GoogleLogin" class="btn btn-light border d-flex align-items-center justify-content-center">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
                          alt="Google logo" width="20" height="20" class="me-2">
-                    Registrar com Google
+                    Entrar com Google
                 </a>
             </div>
 
