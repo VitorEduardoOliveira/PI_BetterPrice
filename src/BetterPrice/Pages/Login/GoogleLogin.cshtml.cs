@@ -42,7 +42,7 @@ namespace BetterPrice.Pages.Login
                     await _userRepository.CadastrarUsuario(usuario);
                 }
 
-                HttpContext.Session.SetString("UserId", usuario.Id.ToString());
+                HttpContext.Session.SetString("UsuarioId", usuario.Id.ToString());
 
                 return RedirectToPage("/Index");
             }

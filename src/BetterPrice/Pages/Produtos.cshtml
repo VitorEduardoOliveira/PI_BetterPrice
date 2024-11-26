@@ -15,15 +15,15 @@
                     <div class="mb-3">
                         <h5>Ordenar Preços</h5>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="semOrdenar" id="semOrdenar" asp-for="PrecoVM.SemOrdenacao" checked>
+                            <input class="form-check-input" name="ordenacao" type="radio" value="semOrdenar" id="semOrdenar" asp-for="Ordenacao" checked>
                             <label class="form-check-label" for="semOrdenar">Sem ordenação</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="menorMaior" id="menorMaior" asp-for="PrecoVM.OrdernarMenorMaior">
+                            <input class="form-check-input" name="ordenacao" type="radio" value="menorMaior" id="menorMaior" asp-for="Ordenacao">
                             <label class="form-check-label" for="menorMaior">Menor para maior</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="maiorMenor" id="maiorMenor" asp-for="PrecoVM.OrdenarMaiorMenor">
+                            <input class="form-check-input" name="ordenacao" type="radio" value="maiorMenor" id="maiorMenor" asp-for="Ordenacao">
                             <label class="form-check-label" for="maiorMenor">Maior para menor</label>
                         </div>
                     </div>
@@ -32,20 +32,20 @@
                     <div class="mb-3">
                         <h5>Preço</h5>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="todosPrecos" id="todosPrecos" asp-for="PrecoVM.TodosPrecos" checked>
+                            <input class="form-check-input" name="filtroPreco" type="radio" value="todosPrecos" id="todosPrecos" asp-for="FiltroPreco" checked>
                             <label class="form-check-label" for="todosPrecos">Todos os preços</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="preco1" id="preco1" asp-for="PrecoVM.Ate50" >
-                            <label class="form-check-label" for="preco1">Até R$ 50</label>
+                            <input class="form-check-input" name="filtroPreco" type="radio" value="ate50" id="ate50" asp-for="FiltroPreco">
+                            <label class="form-check-label" for="ate50">Até R$ 50</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="preco2" id="preco2" asp-for="PrecoVM.De51a200">
-                            <label class="form-check-label" for="preco2">R$ 51 - R$ 200</label>
+                            <input class="form-check-input" name="filtroPreco" type="radio" value="51a200" id="51a200" asp-for="FiltroPreco">
+                            <label class="form-check-label" for="51a200">R$ 51 - R$ 200</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" id="preco3" value="preco3" asp-for="PrecoVM.Acima200">
-                            <label class="form-check-label" for="preco3">Acima de R$ 200</label>
+                            <input class="form-check-input" name="filtroPreco" type="radio" id="acima200" value="acima200" asp-for="FiltroPreco">
+                            <label class="form-check-label" for="acima200">Acima de R$ 200</label>
                         </div>
                     </div>
                     <!-- Categorias Section -->

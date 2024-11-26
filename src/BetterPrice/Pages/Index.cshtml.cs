@@ -19,7 +19,7 @@ namespace BetterPrice.Pages
         public IActionResult OnPostPesquisa()
         {
             if (string.IsNullOrEmpty(Filtro.Nome))
-                return RedirectToPage("/Index");
+                return RedirectToPage("Index");
 
             return RedirectToPage("Produtos", Filtro);
         }
@@ -27,7 +27,7 @@ namespace BetterPrice.Pages
         public IActionResult OnPostLogout()
         {
             HttpContext.Session.Clear();
-            return RedirectToPage("/Index");
+            return RedirectToPage("Index");
         }
 
     }

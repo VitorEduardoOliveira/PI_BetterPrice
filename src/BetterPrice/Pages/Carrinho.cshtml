@@ -3,20 +3,25 @@
 @{
 @if (Model.ProdutosPorMercados is not null && Model.ProdutosPorMercados.Any())
 {
+    
     @foreach(var produtosPorMercado in Model.ProdutosPorMercados)
     {
         <div class="market-section mb-5">
-            <h2 class="mb-3">@produtosPorMercado.Mercado.Nome</h2>
-            <div class="row g-4">
-
-            @foreach (var item in produtosPorMercado.Items)
-            {
-                @await Html.PartialAsync("Components/_ProdutoCard", new { Item = item, EhCarrinho = true})                          
-            }
+            <h2 class="mb-3">Mercado: @produtosPorMercado.Mercado.Nome</h2>
+        <div class="row g-4">
+            <div class="container cards-container mt-5">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    @foreach (var item in produtosPorMercado.Items)
+                    {
+                        @await Html.PartialAsync("Components/_ProdutoCard", new { Item = item, EhCarrinho = true})  
+                    }
+                </div>
             </div>
-            <div class="mt-3 fw-bold">@($"Total mercado {produtosPorMercado.Mercado.Nome}: R$ {produtosPorMercado.TotalPorMercado():N2)}")</div>
+            <div class="mt-3 fw-bold">@($"Total mercado {produtosPorMercado.Mercado.Nome}: R$ {produtosPorMercado.TotalPorMercado():N2}")</div>
+        </div>
         </div>
     }
+        
 }
 else
 {

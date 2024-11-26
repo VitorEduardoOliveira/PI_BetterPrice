@@ -159,7 +159,7 @@ public static class DadosPadroes
             new ItemPreco { Id = 25, ProdutoId = 5, MercadoId = 6, Valor = 6.50m, Oferta = 5.20m, Destaque = false },
             new ItemPreco { Id = 26, ProdutoId = 6, MercadoId = 7, Valor = 7.20m, Oferta = 6.00m, Destaque = false },
             new ItemPreco { Id = 27, ProdutoId = 7, MercadoId = 8, Valor = 10.10m, Oferta = 8.90m, Destaque = false },
-            new ItemPreco { Id = 28, ProdutoId = 8, MercadoId = 9, Valor = 4.10m, Oferta = 3.50m, Destaque = true },
+            new ItemPreco { Id = 28, ProdutoId = 8, MercadoId = 9, Valor = 4.10m, Oferta = 3.50m, Destaque = false },
             new ItemPreco { Id = 29, ProdutoId = 9, MercadoId = 10, Valor = 2.50m, Oferta = 2.10m, Destaque = false },
             new ItemPreco { Id = 30, ProdutoId = 10, MercadoId = 1, Valor = 1.90m, Oferta = 1.60m, Destaque = false },
 
@@ -167,7 +167,7 @@ public static class DadosPadroes
             new ItemPreco { Id = 32, ProdutoId = 12, MercadoId = 3, Valor = 13.20m, Oferta = 11.80m, Destaque = false },
             new ItemPreco { Id = 33, ProdutoId = 13, MercadoId = 4, Valor = 19.50m, Oferta = 17.00m, Destaque = false },
             new ItemPreco { Id = 37, ProdutoId = 17, MercadoId = 8, Valor = 5.00m, Oferta = 4.30m, Destaque = false },
-            new ItemPreco { Id = 38, ProdutoId = 18, MercadoId = 9, Valor = 6.50m, Oferta = 5.90m, Destaque = true },
+            new ItemPreco { Id = 38, ProdutoId = 18, MercadoId = 9, Valor = 6.50m, Oferta = 5.90m, Destaque = false },
             new ItemPreco { Id = 39, ProdutoId = 19, MercadoId = 10, Valor = 8.00m, Oferta = 6.50m, Destaque = false },
             new ItemPreco { Id = 40, ProdutoId = 20, MercadoId = 1, Valor = 10.50m, Oferta = 9.20m, Destaque = false },
 

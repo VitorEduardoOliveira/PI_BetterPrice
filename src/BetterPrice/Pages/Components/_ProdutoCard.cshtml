@@ -9,6 +9,7 @@
         <div class="card-body">
             <h5 class="card-title">@Model.Item.Produto.Nome</h5>
             <p class="card-text">@Model.Item.Produto.Descricao</p>
+            <p class="card-price">@($"Mercado: {Model.Item.Mercado.Nome}")</p>
             <p class="card-price">@($"R$ {Model.Item.Valor:N2}")</p>
                         
             @if (Model.EhCarrinho)

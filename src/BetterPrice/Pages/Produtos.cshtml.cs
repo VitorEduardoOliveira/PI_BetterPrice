@@ -26,6 +26,12 @@ public class ProdutosModel : PageModel
     public List<int> DepartamentosSelecionados { get; set; }
 
     [BindProperty]
+    public string Ordenacao { get; set; }
+
+    [BindProperty]
+    public string FiltroPreco { get; set; }
+
+    [BindProperty]
     public PrecoVM PrecoVM { get; set; }  
 
     public ProdutosModel(CategoriaRepository categoriasRepository, 
@@ -58,12 +64,12 @@ public class ProdutosModel : PageModel
             ? DepartamentosSelecionados.ToArray()
             : null;
 
-        Filtro.OrdenarMaiorMenor = PrecoVM.OrdenarMaiorMenor;
-        Filtro.OrdernarMenorMaior = PrecoVM.OrdernarMenorMaior;
+        Filtro.OrdenarMaiorMenor = Ordenacao == "maiorMenor";
+        Filtro.OrdernarMenorMaior = Ordenacao == "menorMaior";
 
-        Filtro.Ate50 = PrecoVM.Ate50;
-        Filtro.De50a200 = PrecoVM.De51a200;
-        Filtro.Acima200 = PrecoVM.Acima200;
+        Filtro.Ate50 = FiltroPreco == "ate50";
+        Filtro.De50a200 = FiltroPreco == "51a200";
+        Filtro.Acima200 = FiltroPreco == "acima200";
 
         return RedirectToPage("Produtos", Filtro);
     }

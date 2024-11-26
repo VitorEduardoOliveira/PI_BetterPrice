@@ -15,6 +15,7 @@ namespace BetterPrice.Data
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ItemPreco> ItemPrecos { get; set; }
         public DbSet<Carrinho> Carrinhos { get; set; }
+        public DbSet<ItemCarrinho> ItemCarrinhos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
@@ -28,10 +29,6 @@ namespace BetterPrice.Data
                 usuario.HasKey(i => i.Id);
                 usuario.Property(i => i.Id).ValueGeneratedOnAdd();
 
-                // One-to-One relationship with Carrinho (CarrinhoId will be set in Carrinho entity)
-                usuario.HasOne(u => u.Carrinho)
-                    .WithOne(c => c.Usuario)
-                    .HasForeignKey<Carrinho>(c => c.UsuarioId);
             });
 
             // Mercado
@@ -89,7 +86,18 @@ namespace BetterPrice.Data
                     .WithOne(u => u.Carrinho)
                     .HasForeignKey<Carrinho>(c => c.UsuarioId);
 
-                carrinho.HasMany(c => c.Items);
+                carrinho.HasMany(c => c.Items)
+                    .WithOne(i => i.Carrinho)
+                    .HasForeignKey(i => i.CarrinhoId);
+            });
+
+            //ItemCarrinho
+            builder.Entity<ItemCarrinho>(itemCarrinho =>
+            {
+                itemCarrinho.HasKey(c => c.Id);
+                itemCarrinho.Property(c => c.Id).ValueGeneratedOnAdd();
+
+                itemCarrinho.HasOne(c => c.Item);
             });
         }
     }

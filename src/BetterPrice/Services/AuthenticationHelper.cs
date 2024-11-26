@@ -11,8 +11,8 @@
 
         public bool UsuarioEstaLogado()
         {
-            var userId = _httpContextAccessor.HttpContext?.Session.GetString("UserId");
-            return !string.IsNullOrEmpty(userId);
+            var userId = _httpContextAccessor.HttpContext?.Session.GetString("UsuarioId");
+            return !string.IsNullOrEmpty(userId) && userId != "0";
         }
     }
 }

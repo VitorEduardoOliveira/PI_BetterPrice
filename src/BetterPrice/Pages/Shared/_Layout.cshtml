@@ -13,28 +13,38 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand brand-title" href="#">BetterPrice</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Página Inicial</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ajuda</a></li>
-                </ul>
-                <partial name="_LoginPartial" />
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand brand-title" href="#">BetterPrice</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a asp-page="Index" class="nav-link">Página Inicial</a></li>
+                <li asp class="nav-item"><a asp-page="Produtos" class="nav-link">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" >Ajuda</a></li>
+            </ul>
+            <partial name="_LoginPartial" />
             <!--
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cart3"></i></a></li>
                 <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a></li>
             </ul>
-                    -->
-            </div>
+            -->
         </div>
-    </nav>
+    </div>
+</nav>
+
+    @if (TempData["Alerta"] is not null)
+    {
+        @await Html.PartialAsync("Components/Mensagens/MessageView", model: new Mensagem()
+        {
+            Descricao = TempData["Alerta"].ToString(),
+            TipoMensagem = TipoMensagem.Sucesso
+        })
+        TempData["Alerta"] = null;
+    }
 
     @RenderBody()
     

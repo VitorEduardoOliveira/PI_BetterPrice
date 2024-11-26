@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BetterPrice.Migrations
 {
     /// <inheritdoc />
-    public partial class Inicial : Migration
+    public partial class AjusteCarrinho : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -134,17 +134,11 @@ namespace BetterPrice.Migrations
                     MercadoId = table.Column<int>(type: "integer", nullable: false),
                     Valor = table.Column<decimal>(type: "numeric", nullable: false),
                     Oferta = table.Column<decimal>(type: "numeric", nullable: false),
-                    Destaque = table.Column<bool>(type: "boolean", nullable: false),
-                    CarrinhoId = table.Column<int>(type: "integer", nullable: true)
+                    Destaque = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ItemPrecos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ItemPrecos_Carrinhos_CarrinhoId",
-                        column: x => x.CarrinhoId,
-                        principalTable: "Carrinhos",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ItemPrecos_Mercados_MercadoId",
                         column: x => x.MercadoId,
@@ -155,6 +149,32 @@ namespace BetterPrice.Migrations
                         name: "FK_ItemPrecos_Produtos_ProdutoId",
                         column: x => x.ProdutoId,
                         principalTable: "Produtos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ItemCarrinhos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CarrinhoId = table.Column<int>(type: "integer", nullable: false),
+                    ItemId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItemCarrinhos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItemCarrinhos_Carrinhos_CarrinhoId",
+                        column: x => x.CarrinhoId,
+                        principalTable: "Carrinhos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ItemCarrinhos_ItemPrecos_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "ItemPrecos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -272,88 +292,88 @@ namespace BetterPrice.Migrations
 
             migrationBuilder.InsertData(
                 table: "ItemPrecos",
-                columns: new[] { "Id", "CarrinhoId", "Destaque", "MercadoId", "Oferta", "ProdutoId", "Valor" },
+                columns: new[] { "Id", "Destaque", "MercadoId", "Oferta", "ProdutoId", "Valor" },
                 values: new object[,]
                 {
-                    { 1, null, false, 1, 10.99m, 1, 12.99m },
-                    { 2, null, false, 2, 7.90m, 2, 8.50m },
-                    { 3, null, false, 3, 2.90m, 3, 3.40m },
-                    { 4, null, true, 4, 6.50m, 4, 7.80m },
-                    { 5, null, false, 5, 4.99m, 5, 5.60m },
-                    { 6, null, false, 6, 5.99m, 6, 6.99m },
-                    { 7, null, false, 7, 8.50m, 7, 9.90m },
-                    { 8, null, false, 8, 2.99m, 8, 3.50m },
-                    { 9, null, false, 9, 1.99m, 9, 2.30m },
-                    { 10, null, false, 10, 1.69m, 10, 1.99m },
-                    { 11, null, false, 1, 12.50m, 11, 15.00m },
-                    { 12, null, false, 2, 10.00m, 12, 12.00m },
-                    { 13, null, false, 3, 16.00m, 13, 18.00m },
-                    { 14, null, false, 4, 3.99m, 14, 4.50m },
-                    { 15, null, false, 5, 4.99m, 15, 5.99m },
-                    { 16, null, true, 6, 6.00m, 16, 7.50m },
-                    { 17, null, false, 7, 4.50m, 17, 4.90m },
-                    { 18, null, false, 8, 5.50m, 18, 6.20m },
-                    { 19, null, false, 9, 6.70m, 19, 7.80m },
-                    { 20, null, false, 10, 8.99m, 20, 10.00m },
-                    { 21, null, false, 2, 11.00m, 1, 13.50m },
-                    { 22, null, true, 3, 7.50m, 2, 9.00m },
-                    { 23, null, false, 4, 3.20m, 3, 3.80m },
-                    { 24, null, false, 5, 7.10m, 4, 8.30m },
-                    { 25, null, false, 6, 5.20m, 5, 6.50m },
-                    { 26, null, false, 7, 6.00m, 6, 7.20m },
-                    { 27, null, false, 8, 8.90m, 7, 10.10m },
-                    { 28, null, true, 9, 3.50m, 8, 4.10m },
-                    { 29, null, false, 10, 2.10m, 9, 2.50m },
-                    { 30, null, false, 1, 1.60m, 10, 1.90m },
-                    { 31, null, false, 2, 14.00m, 11, 16.50m },
-                    { 32, null, false, 3, 11.80m, 12, 13.20m },
-                    { 33, null, false, 4, 17.00m, 13, 19.50m },
-                    { 37, null, false, 8, 4.30m, 17, 5.00m },
-                    { 38, null, true, 9, 5.90m, 18, 6.50m },
-                    { 39, null, false, 10, 6.50m, 19, 8.00m },
-                    { 40, null, false, 1, 9.20m, 20, 10.50m },
-                    { 41, null, false, 9, 12.50m, 1, 14.00m },
-                    { 42, null, false, 8, 8.00m, 2, 9.50m },
-                    { 44, null, false, 6, 6.50m, 4, 8.00m },
-                    { 49, null, false, 1, 2.50m, 9, 2.80m },
-                    { 50, null, false, 10, 2.00m, 10, 2.20m },
-                    { 51, null, false, 1, 7.50m, 19, 8.50m },
-                    { 52, null, false, 2, 12.00m, 12, 13.90m },
-                    { 53, null, false, 3, 5.70m, 5, 6.20m },
-                    { 54, null, true, 4, 8.50m, 7, 10.00m },
-                    { 55, null, false, 5, 10.90m, 1, 12.30m },
-                    { 56, null, false, 6, 1.80m, 10, 2.10m },
-                    { 57, null, true, 7, 6.80m, 16, 7.60m },
-                    { 59, null, false, 9, 3.50m, 8, 4.00m },
-                    { 60, null, false, 10, 2.10m, 9, 2.50m },
-                    { 61, null, false, 1, 6.60m, 4, 7.90m },
-                    { 62, null, false, 2, 13.00m, 11, 15.10m },
-                    { 63, null, false, 3, 3.30m, 3, 3.90m },
-                    { 64, null, false, 4, 3.80m, 14, 4.50m },
-                    { 69, null, false, 9, 6.50m, 6, 7.30m },
-                    { 70, null, false, 10, 6.00m, 18, 6.80m },
-                    { 72, null, false, 6, 13.20m, 12, 14.80m },
-                    { 73, null, false, 7, 2.10m, 10, 2.30m },
-                    { 74, null, false, 8, 8.60m, 7, 9.90m },
-                    { 75, null, false, 9, 5.20m, 5, 6.00m },
-                    { 76, null, false, 10, 3.30m, 8, 3.80m },
-                    { 78, null, false, 2, 2.00m, 9, 2.20m },
-                    { 79, null, false, 3, 7.10m, 16, 7.90m },
-                    { 81, null, false, 5, 16.00m, 13, 18.50m },
-                    { 82, null, false, 6, 3.80m, 3, 4.20m },
-                    { 83, null, false, 7, 5.80m, 15, 6.50m },
-                    { 89, null, false, 4, 6.60m, 6, 7.10m },
-                    { 90, null, false, 5, 4.20m, 14, 4.80m },
-                    { 91, null, false, 6, 3.30m, 8, 3.90m },
-                    { 92, null, false, 7, 7.00m, 4, 8.10m },
-                    { 93, null, false, 8, 7.10m, 2, 7.90m },
-                    { 94, null, false, 9, 13.50m, 12, 15.00m },
-                    { 95, null, false, 10, 5.10m, 5, 5.70m },
-                    { 96, null, false, 2, 1.80m, 10, 2.00m },
-                    { 97, null, false, 3, 5.50m, 15, 6.00m },
-                    { 98, null, true, 4, 8.00m, 7, 9.50m },
-                    { 99, null, false, 5, 16.40m, 13, 17.90m },
-                    { 100, null, false, 6, 6.20m, 18, 6.80m }
+                    { 1, false, 1, 10.99m, 1, 12.99m },
+                    { 2, false, 2, 7.90m, 2, 8.50m },
+                    { 3, false, 3, 2.90m, 3, 3.40m },
+                    { 4, true, 4, 6.50m, 4, 7.80m },
+                    { 5, false, 5, 4.99m, 5, 5.60m },
+                    { 6, false, 6, 5.99m, 6, 6.99m },
+                    { 7, false, 7, 8.50m, 7, 9.90m },
+                    { 8, false, 8, 2.99m, 8, 3.50m },
+                    { 9, false, 9, 1.99m, 9, 2.30m },
+                    { 10, false, 10, 1.69m, 10, 1.99m },
+                    { 11, false, 1, 12.50m, 11, 15.00m },
+                    { 12, false, 2, 10.00m, 12, 12.00m },
+                    { 13, false, 3, 16.00m, 13, 18.00m },
+                    { 14, false, 4, 3.99m, 14, 4.50m },
+                    { 15, false, 5, 4.99m, 15, 5.99m },
+                    { 16, true, 6, 6.00m, 16, 7.50m },
+                    { 17, false, 7, 4.50m, 17, 4.90m },
+                    { 18, false, 8, 5.50m, 18, 6.20m },
+                    { 19, false, 9, 6.70m, 19, 7.80m },
+                    { 20, false, 10, 8.99m, 20, 10.00m },
+                    { 21, false, 2, 11.00m, 1, 13.50m },
+                    { 22, true, 3, 7.50m, 2, 9.00m },
+                    { 23, false, 4, 3.20m, 3, 3.80m },
+                    { 24, false, 5, 7.10m, 4, 8.30m },
+                    { 25, false, 6, 5.20m, 5, 6.50m },
+                    { 26, false, 7, 6.00m, 6, 7.20m },
+                    { 27, false, 8, 8.90m, 7, 10.10m },
+                    { 28, false, 9, 3.50m, 8, 4.10m },
+                    { 29, false, 10, 2.10m, 9, 2.50m },
+                    { 30, false, 1, 1.60m, 10, 1.90m },
+                    { 31, false, 2, 14.00m, 11, 16.50m },
+                    { 32, false, 3, 11.80m, 12, 13.20m },
+                    { 33, false, 4, 17.00m, 13, 19.50m },
+                    { 37, false, 8, 4.30m, 17, 5.00m },
+                    { 38, false, 9, 5.90m, 18, 6.50m },
+                    { 39, false, 10, 6.50m, 19, 8.00m },
+                    { 40, false, 1, 9.20m, 20, 10.50m },
+                    { 41, false, 9, 12.50m, 1, 14.00m },
+                    { 42, false, 8, 8.00m, 2, 9.50m },
+                    { 44, false, 6, 6.50m, 4, 8.00m },
+                    { 49, false, 1, 2.50m, 9, 2.80m },
+                    { 50, false, 10, 2.00m, 10, 2.20m },
+                    { 51, false, 1, 7.50m, 19, 8.50m },
+                    { 52, false, 2, 12.00m, 12, 13.90m },
+                    { 53, false, 3, 5.70m, 5, 6.20m },
+                    { 54, true, 4, 8.50m, 7, 10.00m },
+                    { 55, false, 5, 10.90m, 1, 12.30m },
+                    { 56, false, 6, 1.80m, 10, 2.10m },
+                    { 57, true, 7, 6.80m, 16, 7.60m },
+                    { 59, false, 9, 3.50m, 8, 4.00m },
+                    { 60, false, 10, 2.10m, 9, 2.50m },
+                    { 61, false, 1, 6.60m, 4, 7.90m },
+                    { 62, false, 2, 13.00m, 11, 15.10m },
+                    { 63, false, 3, 3.30m, 3, 3.90m },
+                    { 64, false, 4, 3.80m, 14, 4.50m },
+                    { 69, false, 9, 6.50m, 6, 7.30m },
+                    { 70, false, 10, 6.00m, 18, 6.80m },
+                    { 72, false, 6, 13.20m, 12, 14.80m },
+                    { 73, false, 7, 2.10m, 10, 2.30m },
+                    { 74, false, 8, 8.60m, 7, 9.90m },
+                    { 75, false, 9, 5.20m, 5, 6.00m },
+                    { 76, false, 10, 3.30m, 8, 3.80m },
+                    { 78, false, 2, 2.00m, 9, 2.20m },
+                    { 79, false, 3, 7.10m, 16, 7.90m },
+                    { 81, false, 5, 16.00m, 13, 18.50m },
+                    { 82, false, 6, 3.80m, 3, 4.20m },
+                    { 83, false, 7, 5.80m, 15, 6.50m },
+                    { 89, false, 4, 6.60m, 6, 7.10m },
+                    { 90, false, 5, 4.20m, 14, 4.80m },
+                    { 91, false, 6, 3.30m, 8, 3.90m },
+                    { 92, false, 7, 7.00m, 4, 8.10m },
+                    { 93, false, 8, 7.10m, 2, 7.90m },
+                    { 94, false, 9, 13.50m, 12, 15.00m },
+                    { 95, false, 10, 5.10m, 5, 5.70m },
+                    { 96, false, 2, 1.80m, 10, 2.00m },
+                    { 97, false, 3, 5.50m, 15, 6.00m },
+                    { 98, true, 4, 8.00m, 7, 9.50m },
+                    { 99, false, 5, 16.40m, 13, 17.90m },
+                    { 100, false, 6, 6.20m, 18, 6.80m }
                 });
 
             migrationBuilder.CreateIndex(
@@ -363,9 +383,14 @@ namespace BetterPrice.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemPrecos_CarrinhoId",
-                table: "ItemPrecos",
+                name: "IX_ItemCarrinhos_CarrinhoId",
+                table: "ItemCarrinhos",
                 column: "CarrinhoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItemCarrinhos_ItemId",
+                table: "ItemCarrinhos",
+                column: "ItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemPrecos_MercadoId",
@@ -392,19 +417,22 @@ namespace BetterPrice.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ItemPrecos");
+                name: "ItemCarrinhos");
 
             migrationBuilder.DropTable(
                 name: "Carrinhos");
+
+            migrationBuilder.DropTable(
+                name: "ItemPrecos");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
                 name: "Mercados");
 
             migrationBuilder.DropTable(
                 name: "Produtos");
-
-            migrationBuilder.DropTable(
-                name: "Usuarios");
 
             migrationBuilder.DropTable(
                 name: "Categorias");

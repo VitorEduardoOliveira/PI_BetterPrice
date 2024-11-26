@@ -17,7 +17,7 @@ namespace BetterPrice.Pages
         }
         public async Task OnGetAsync()
         {
-            var userId = Request.Cookies["UserID"];
+            var userId = HttpContext.Session.GetString("UsuarioId");
 
             Usuario = await _userRepository.CarregarUsuario(int.Parse(userId));
         }

@@ -38,50 +38,26 @@ public class CarrinhoModel : PageModel
     public async Task<IActionResult> OnPostAddCarrinho(int itemId)
     {
         var carrinhoId = HttpContext.Session.GetString("CarrinhoId");
-        var userId = HttpContext.Session.GetString("UserId");
+        var userId = HttpContext.Session.GetString("UsuarioId");
 
-        try
-        {
-            await _carrinhoRepository.AdicionarNoCarrinho(int.Parse(carrinhoId!), itemId, int.Parse(userId));
 
-            return Partial("Components/Mensagens/MessageView", new Mensagem
-            {
-                Descricao = "Item adicionado no carrinho!",
-                TipoMensagem = TipoMensagem.Sucesso
-            });
-        }
-        catch
-        {
-            return Partial("Components/Mensagens/MessageView", new Mensagem
-            {
-                Descricao = "Falha ao adicionar item no carrinho!",
-                TipoMensagem = TipoMensagem.Erro
-            });
-        }
+        await _carrinhoRepository.AdicionarNoCarrinho(int.Parse(carrinhoId!), itemId, int.Parse(userId));
+
+        TempData["Alerta"] = "Item adicionado no carrinho!";
+
+        return RedirectToPage();
+
     }
 
     public async Task<IActionResult> OnPostRemoverCarrinho(int itemId)
     {
         var carrinhoId = HttpContext.Session.GetString("CarrinhoId");
-        var userId = HttpContext.Session.GetString("UserId");
+        var userId = HttpContext.Session.GetString("UsuarioId");
 
-        try
-        {
-            await _carrinhoRepository.RemoverDoCarrinho(int.Parse(carrinhoId!), itemId, int.Parse(userId));
+        await _carrinhoRepository.RemoverDoCarrinho(int.Parse(carrinhoId!), itemId, int.Parse(userId));
 
-            return Partial("Components/Mensagens/MessageView", new Mensagem
-            {
-                Descricao = "Item removido do carrinho!",
-                TipoMensagem = TipoMensagem.Sucesso
-            });
-        }
-        catch
-        {
-            return Partial("Components/Mensagens/MessageView", new Mensagem
-            {
-                Descricao = "Falha ao remover item do carrinho!",
-                TipoMensagem = TipoMensagem.Erro
-            });
-        }
+        TempData["Alerta"] = "Item removido do carrinho!";
+
+        return RedirectToPage();
     }
 }

@@ -30,10 +30,12 @@ namespace BetterPrice.Data.Repository
 
         public async Task CadastrarUsuario(Usuario usuario)
         {
-            var carrinho = await _carrinho.AddAsync(new Carrinho());
-            usuario.CarrinhoId = carrinho.Entity.Id;
             await _usuarios.AddAsync(usuario);
+            var carrinho = new Carrinho() { UsuarioId = usuario.Id, Usuario = usuario };
+            await _carrinho.AddAsync(carrinho);
             await _dbContext.SaveChangesAsync();
+
+            usuario.CarrinhoId = carrinho.Id;
         }
 
         public ValueTask<Usuario?> CarregarUsuario(int id)

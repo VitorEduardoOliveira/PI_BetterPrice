@@ -7,60 +7,41 @@ public class CarrinhoRepository
 {
     private readonly ApplicationDbContext _context;
     private readonly DbSet<Carrinho> _carrinhos;
+    private readonly DbSet<ItemCarrinho> _itemsCarrinho;
 
     public CarrinhoRepository(ApplicationDbContext context)
     {
         _context = context;
         _carrinhos = context.Carrinhos;
+        _itemsCarrinho = context.ItemCarrinhos;
     }
 
     public Task AdicionarNoCarrinho(int carrinhoId, int itemId, int userId)
     {
-        var carrinhoItem = new Carrinho()
+        var carrinhoItem = new ItemCarrinho()
         {
-            Id = carrinhoId,
-            Items = new List<ItemPreco>()
-            {
-                new() { Id = itemId, }
-            },
-            UsuarioId = userId
+            CarrinhoId = carrinhoId,
+            Item = new ItemPreco() { Id = itemId }
         };
 
         _context.Entry(carrinhoItem).State = EntityState.Added;
 
-        foreach (var item in carrinhoItem.Items)
-        {
-            _context.Entry(item).State = EntityState.Added;
-        }
-
         return _context.SaveChangesAsync();
     }
 
-    public Task RemoverDoCarrinho(int carrinhoId, int itemId, int userId)
+    public async Task RemoverDoCarrinho(int carrinhoId, int itemId, int userId)
     {
-        var carrinhoItem = new Carrinho()
-        {
-            Id = carrinhoId,
-            Items = new List<ItemPreco>()
-            {
-                new() { Id = itemId, }
-            },
-            UsuarioId = userId
-        };
+        var item = await _itemsCarrinho.FirstAsync(i => i.CarrinhoId == carrinhoId && i.Item.Id == itemId);
+        _itemsCarrinho.Remove(item);
 
-        _context.Entry(carrinhoItem).State = EntityState.Deleted;
-
-        foreach (var item in carrinhoItem.Items)
-        {
-            _context.Entry(item).State = EntityState.Deleted;
-        }
-
-        return _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 
-    public Task<List<ItemPreco>> CarregarCarrinho(int carrinhoId) => _carrinhos
-            .Include(c => c.Items).ThenInclude(i => i.Mercado)
-            .Where(c => c.Id == carrinhoId)
-            .SelectMany(s => s.Items)
+    public Task<List<ItemPreco>> CarregarCarrinho(int carrinhoId) => _itemsCarrinho
+            .Include(c => c.Item)
+            .ThenInclude(i => i.Mercado)
+            .Include(c => c.Item.Produto)
+            .Where(c => c.CarrinhoId == carrinhoId)
+            .Select(c => c.Item)
             .ToListAsync();
 }

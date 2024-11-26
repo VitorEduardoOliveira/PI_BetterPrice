@@ -30,8 +30,8 @@ namespace BetterPrice.Pages.Login
             // Verificando senha
             if (usuario.TipoAutenticacao == TipoAutenticacao.App && BCrypt.Net.BCrypt.Verify(senha, usuario.Senha))
             {
-                HttpContext.Session.SetString("UserId", usuario.Id.ToString());
-                HttpContext.Session.SetString("CarrinhoId", usuario.CarrinhoId.ToString());
+                HttpContext.Session.SetString("UsuarioId", usuario.Id.ToString());
+                HttpContext.Session.SetString("CarrinhoId", usuario.Carrinho.Id.ToString());
                 return RedirectToPage("/Index");
             }
 

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BetterPrice.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241125021649_Inicial")]
-    partial class Inicial
+    [Migration("20241126044521_AjusteCarrinho")]
+    partial class AjusteCarrinho
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -197,7 +197,7 @@ namespace BetterPrice.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BetterPrice.Entities.ItemPreco", b =>
+            modelBuilder.Entity("BetterPrice.Entities.ItemCarrinho", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -205,8 +205,28 @@ namespace BetterPrice.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CarrinhoId")
+                    b.Property<int>("CarrinhoId")
                         .HasColumnType("integer");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarrinhoId");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("ItemCarrinhos");
+                });
+
+            modelBuilder.Entity("BetterPrice.Entities.ItemPreco", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("Destaque")
                         .HasColumnType("boolean");
@@ -224,8 +244,6 @@ namespace BetterPrice.Migrations
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CarrinhoId");
 
                     b.HasIndex("MercadoId");
 
@@ -480,7 +498,7 @@ namespace BetterPrice.Migrations
                         new
                         {
                             Id = 28,
-                            Destaque = true,
+                            Destaque = false,
                             MercadoId = 9,
                             Oferta = 3.50m,
                             ProdutoId = 8,
@@ -543,7 +561,7 @@ namespace BetterPrice.Migrations
                         new
                         {
                             Id = 38,
-                            Destaque = true,
+                            Destaque = false,
                             MercadoId = 9,
                             Oferta = 5.90m,
                             ProdutoId = 18,
@@ -1646,12 +1664,27 @@ namespace BetterPrice.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("BetterPrice.Entities.ItemCarrinho", b =>
+                {
+                    b.HasOne("BetterPrice.Entities.Carrinho", "Carrinho")
+                        .WithMany("Items")
+                        .HasForeignKey("CarrinhoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BetterPrice.Entities.ItemPreco", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Carrinho");
+
+                    b.Navigation("Item");
+                });
+
             modelBuilder.Entity("BetterPrice.Entities.ItemPreco", b =>
                 {
-                    b.HasOne("BetterPrice.Entities.Carrinho", null)
-                        .WithMany("Items")
-                        .HasForeignKey("CarrinhoId");
-
                     b.HasOne("BetterPrice.Entities.Mercado", "Mercado")
                         .WithMany()
                         .HasForeignKey("MercadoId")
